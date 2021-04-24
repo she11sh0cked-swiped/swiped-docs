@@ -3,7 +3,7 @@ title: "Swiped"
 subtitle: "Projekt Antrag"
 author: [Erik Berreßem]
 lang: de
-...
+---
 
 ## Thema
 
@@ -61,9 +61,11 @@ Ich werde meine Familie, Freunde, Kollegen und meinen Ausbilder bei der inSynerg
 ## Projektphasen
 
 ### 6h: Planung
+
 - 6h: Erstellen einer Soll-Analyse
 
 ### 49h: Implementierung
+
 - 27h: Erstellen einer Benutzeroberfläche
   - 6h: Erstellen einer "Swiping Game" Seite
   - 2h: Erstellen einer "Film Details" Seite
@@ -83,6 +85,7 @@ Ich werde meine Familie, Freunde, Kollegen und meinen Ausbilder bei der inSynerg
 - 4h: Docker deployment
 
 ### 14h: Dokumentation
+
 - 7h: Erstellen einer Entwickler Dokumentation
 - 7h: Erstellen einer Präsentation
 
