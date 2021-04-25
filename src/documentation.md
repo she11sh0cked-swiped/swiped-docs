@@ -2,7 +2,6 @@
 title: "Swiped - Dokumentation zu betrieblichen Projektarbeit"
 subtitle: "Entwicklung einer Webanwendung zum anonymisierten matchen von Filmen und Serien in Gruppen von Benutzern."
 author: [Erik Berreßem]
-keywords: [Markdown, Example]
 titlepage: true
 toc: true
 toc-own-page: true
