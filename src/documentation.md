@@ -6,11 +6,12 @@ titlepage: true
 toc: true
 toc-own-page: true
 header-includes:
-  - \usepackage{glossaries}
+  - \usepackage[toc]{glossaries}
   - \makenoidxglossaries
   - \input{../src/glossary}
 include-after:
-  - \printnoidxglossary[sort=word]
+  - \clearpage
+  - \printnoidxglossary[title=Glossar,sort=word]
 ---
 
 # Projektbeschreibung
