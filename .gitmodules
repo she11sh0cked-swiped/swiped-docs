@@ -1,3 +1,6 @@
 [submodule "pandoc/templates/pandoc-latex-template"]
 	path = pandoc/templates/pandoc-latex-template
 	url = https://github.com/Wandmalfarbe/pandoc-latex-template.git
+[submodule "pandoc/filters/pandoc-gls"]
+	path = pandoc/filters/pandoc-gls
+	url = https://github.com/tomncooper/pandoc-gls.git
