@@ -33,3 +33,11 @@ Dort findet er ein Kartendeck welches aus momentan populären Filmen besteht. Di
 ## Projektbegründung
 
 Der Zweck dieser Anwendung ist es ein realistisches Projekt-Ziel zu haben in den man neue Technologien testen und bereits eingesetzte Technologien festigen und überdenken kann. Diese erlangten Kenntnisse kommen dann möglicherweise auch in einer Vielzahl an zukünftigen Projekten zum Einsatz. Deshalb dient dieses Projekt, als auch diese Dokumentation als eine Art Pilotprojekt.
+
+## Projektschnittstellen
+
+Der Endbenutzer kann die Webanwendung in jedem aktuellen Browser und auf einer Vielzahl von Geräten wie PCs, Notebooks über Tablets bis hin zu Smartphone aufrufen.
+
+Das (+Front-End) der Webanwendung läuft auf einem (+NginX)-Server und das (+Back-End) läuft auf einem (+NodeJS)-Server mit (+Express) und (+MongoDB).
+
+Genehmigt wurde das Projekt von der Leitung der Entwicklungsabteilung. Dieser wurde auch der aktuelle Stand zweimal wöchentlich präsentiert, sowie über eine zu jeden Tag aktualisierte Test-Installation zugänglich gemacht.
