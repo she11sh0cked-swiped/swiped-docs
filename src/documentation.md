@@ -76,3 +76,17 @@ Als (+Front-End) Framework wurde (+React) gewählt. (+React) wurde mit dem Fokus
 
 <!-- TODO mehr zu den verwendeten Bibliotheken? -->
 <!-- TODO Datenbank diagram -->
+
+# Qualitätskontrolle
+
+## Manuelle Tests
+
+Die manuellen Tests im Bereich (+React) wurden unter anderen mit der Chrome-Erweiterung "React Developer Tools" durchgeführt, welche den Wert aller in der aktuellen Ansicht vorhandenen Variablen darstellt und manipulieren lässt.
+
+Die (+GraphQL)-API wurde mithilfe der in der (+Apollo) integrierten Schnittstelle "GraphQL-Playground" getestet. Diese ermöglicht das einblicken des kompletten Schemas und das interactive erstellen und senden von Anfragen.
+
+Die Webapplikation wurde auch in verschiedenen Browsern und auf verschiedenen Geräten getestet.
+
+## Versionierung
+
+Von Beginn des Projektes an wurde (+Git) als Versionsverwaltung verwendet. Der Übersichtlichkeit wegen wurde jedem Commit, nach dem (+Gitmoji) prinzip, ein Emoji zugewiesen, der die Art der Änderung beschreibt, wie z.B. 🐛 für Bug-Fixes oder ✨ für das implementieren von neuen Features.
