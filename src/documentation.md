@@ -45,3 +45,19 @@ Genehmigt wurde das Projekt von der Leitung der Entwicklungsabteilung. Dieser wu
 ## Projektabgrenzungen
 
 Basiskenntnisse in der Erstellung von einfachen Webanwendung wie das Erstellen von HTML-Seiten, der Implementierung von CSS-Stilen, sowie der Einbindung von JavaScript Dateien werden vorausgesetzt, da eine genauere Beschreibung dieser Vorgänge den Rahmen dieser Dokumentation sprengen würde.
+
+# Projektplanung
+
+## Projektphasen
+
+Das Projekt wurde innerhalb von 70 Stunden durchgeführt.
+
+<!-- TODO Zeitplanungs Diagram? -->
+
+## Abweichungen vom Projektantrag
+
+Aspekte der Implementierung wurden aus zeitlichen Gründen ausgelassen. Dabei wurde darauf geachtet, dass keine Core-Konzepte entfallen. Zu den nicht implementierten Seiten zählen die "Film-Details", "Benutzerprofil", sowie die "Neuer Benutzer" Seite. Die letztere Seite wurde ausgelassen, da ein ähnliches Feature bereits in der "Swiping-Game" Seite, durch das Empfehlen von populärer Filmen existierte.
+
+## Entwicklungsprozess
+
+Als Entwicklungsprozess wurde die agile Softwareentwicklung verwendet, sodass während der Implementierung ständige Rücksprache mit der Entwicklungsabteilung bestand.
