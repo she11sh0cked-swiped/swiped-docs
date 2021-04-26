@@ -63,3 +63,11 @@ Aspekte der Implementierung wurden aus zeitlichen Gründen ausgelassen. Dabei wu
 ## Entwicklungsprozess
 
 Als Entwicklungsprozess wurde die agile Softwareentwicklung verwendet, sodass während der Implementierung ständige Rücksprache mit der Entwicklungsabteilung bestand.
+
+# Entwurf
+
+## Auswahl des Front-End Frameworks
+
+Als (+Front-End) Framework wurde (+React) gewählt. (+React) wurde mit dem Fokus erstellt, Komponenten für Webanwendungen zu erstellen. Eine (+React)-Komponente ist ein View, der von der Anwendung abgekapselt ist. Damit lassen sich zum Beispiel Buttons, Text-Elemente oder Beschriftungen isoliert und wiederverwendbar entwickeln. Zudem ist die spürbare Geschwindigkeit der Anwendung hoch, da (+React) nur DOM-Manipulationen an Komponenten ausführt dessen sichtbare Daten sich ändern.
+
+(+React) ist (+Open-Source) und wird von Facebook und einer Community einzelner Entwickler und Unternehmen gepflegt. Dadurch existiert für die Bibliothek eine sehr solide Dokumentation. Aber auch für obskurere Probleme findet man durch eine immer größer werdende Community an Entwicklern lösungen. Da (+React) unter der (+MIT-Lizenz) steht, kann es kostenlos verwendet werden.
