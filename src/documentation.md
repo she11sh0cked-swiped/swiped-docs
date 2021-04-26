@@ -41,3 +41,7 @@ Der Endbenutzer kann die Webanwendung in jedem aktuellen Browser und auf einer V
 Das (+Front-End) der Webanwendung läuft auf einem (+NginX)-Server und das (+Back-End) läuft auf einem (+NodeJS)-Server mit (+Express) und (+MongoDB).
 
 Genehmigt wurde das Projekt von der Leitung der Entwicklungsabteilung. Dieser wurde auch der aktuelle Stand zweimal wöchentlich präsentiert, sowie über eine zu jeden Tag aktualisierte Test-Installation zugänglich gemacht.
+
+## Projektabgrenzungen
+
+Basiskenntnisse in der Erstellung von einfachen Webanwendung wie das Erstellen von HTML-Seiten, der Implementierung von CSS-Stilen, sowie der Einbindung von JavaScript Dateien werden vorausgesetzt, da eine genauere Beschreibung dieser Vorgänge den Rahmen dieser Dokumentation sprengen würde.
