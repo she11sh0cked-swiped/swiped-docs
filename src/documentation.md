@@ -6,7 +6,9 @@ titlepage: true
 toc: true
 toc-own-page: true
 header-includes:
+  - \usepackage{ulem}
   - \usepackage[toc]{glossaries}
+  - \renewcommand*{\glstextformat}[1]{\dotuline{#1}}
   - \makenoidxglossaries
   - \input{../src/glossary}
 include-after:
