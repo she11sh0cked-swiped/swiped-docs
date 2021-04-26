@@ -77,6 +77,13 @@ Als (+Front-End) Framework wurde (+React) gewählt. (+React) wurde mit dem Fokus
 <!-- TODO mehr zu den verwendeten Bibliotheken? -->
 <!-- TODO Datenbank diagram -->
 
+# Wirtschaftlichkeit
+
+## Projektkosten
+
+Jegliche verwendete Software ist zur freien Verwendung oder Open Source verfügbar (z.B. (+React) und (+NodeJS)). Ebenso wurde die verwendete Hardware schon vor dem Projekt bezahlt. Auf dem Webserver werden auch andere Webseiten gehostet, sodass diesbezüglich auch keine weiteren Kosten angefallen sind. Somit fielen nur mein Stundenlohn als Kosten an. Für diesen Punkt wurde von einem pauschalen Stundensatz von 10€ ausgegangen. Somit ergeben sich folgende
+Projektkosten: Durchführungszeit von 70 Stunden x 10€ Kosten pro Stunde, also Projektkosten von gesamt 700,00€.
+
 # Qualitätskontrolle
 
 ## Manuelle Tests
