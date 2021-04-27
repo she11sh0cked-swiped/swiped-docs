@@ -100,15 +100,15 @@ Für die Animationen der Karten wurde sich entschieden (+ReactSpring) im Zusamme
 
 ## Statische Quellcode-Analyse
 
-Zur statischen Code-Analyse wurde ein auf das Projekt zugeschnittenes (+ESLint)-Regelwerk angelegt. Dieses enthält spezielle Regeln für (+React) und (+React-Hooks), (+TypeScript), Sortier-Reihenfolgen und vieles mehr. Dies ist sehr hilfreich, da es einfache Fehler im Quellcode durch Warnungen verhindert.
+Zur statischen Code-Analyse wurde ein auf das Projekt zugeschnittenes (+ESLint)-Regelwerk angelegt. Dieses enthält spezielle Regeln für (+React) und (+ReactHooks), (+TypeScript), Sortier-Reihenfolgen und vieles mehr. Dies ist sehr hilfreich, da es einfache Fehler im Quellcode durch Warnungen verhindert.
 
-Die Regelwerke kann man sich aus dem Stammverzeichnis der Projekte unter der Datei `/.eslintrc.js` entnehmen.
+Die Regelwerke kann man sich aus dem Stammverzeichnis der Projekte unter der Datei `.eslintrc.js` entnehmen.
 
 ## Quellcode formatierung
 
 Damit der Quellcode einheitlich bleibt wurde das Code-Formatier Tool "(+Prettier)" eingesetzt. Auch hier wurde eine Konfigurations-Datei angelegt, die allerdings größtenteils die Standartwerte des Tools übernimmt. Die einzig angepassten Regeln sind das ausschalten von Semikolons und das Anpassen des Anführungszeichen-Charakters auf ein einfaches Anführungszeichen.
 
-Auch diese Konfigurationen lassen sich im Stammverzeichnis der Projekte unter der Datei `/.preettierrc.js` einsehen.
+Auch diese Konfigurationen lassen sich im Stammverzeichnis der Projekte unter der Datei `.preettierrc.js` einsehen.
 
 ## Manuelle Tests
 
@@ -139,7 +139,7 @@ Projektkosten: Durchführungszeit von 70 Stunden x 10€ Kosten pro Stunde, also
 
 ## Front-End Ordnerstruktur
 
-**Initiale (+CreateReactApp) Ordnerstruktur:**
+**Initiale Create-React-App Ordnerstruktur:**
 
 \dirtree{%
 .1 swiped-frontend/.
@@ -153,11 +153,11 @@ Projektkosten: Durchführungszeit von 70 Stunden x 10€ Kosten pro Stunde, also
 .1 swiped-frontend/.
 .2 public/\DTcomment{Alle statischen Dateien (z.B.: index.html, favicon.ico)}.
 .2 src/.
-.3 api/\DTcomment{Quellcode der mit dem Verbindungs-Code des Back-End zu tun hat (z.B.: (+Apollo)-Client initialisierung)}.
-.3 app/\DTcomment{Einstiegspunkt des (+React)-Teils der Anwendung}.
-.3 components/\DTcomment{Globale (+React)-Komponenten, die sich in jeden Container verwenden lassen (z.B.: Button Komponente)}.
+.3 api/\DTcomment{Quellcode der mit dem Verbindungs-Code des \gls{BackEnd} zu tun hat (z.B.: \gls{Apollo}-Client initialisierung)}.
+.3 app/\DTcomment{Einstiegspunkt des \gls{React}-Teils der Anwendung}.
+.3 components/\DTcomment{Globale \gls{React}-Komponenten, die sich in jeden Container verwenden lassen (z.B.: Button Komponente)}.
 .3 containers/\DTcomment{Hauptseiten die sich aus globalen und Container spezifischen Komponenten zusammensetzen (z.B.: Login Container)}.
-.3 store/\DTcomment{(+MobX) Stores für Daten die Global in der Anwendung erreichbar sein sollen (z.B.: Name der aktuellen Seite)}.
+.3 store/\DTcomment{\gls{MobX} Stores für Daten die Global in der Anwendung erreichbar sein sollen (z.B.: Name der aktuellen Seite)}.
 .3 types/\DTcomment{Globale typisierungs-Dateien (z.B.: API typisierungen)}.
 .3 utils/\DTcomment{Nützliche und wiederverwendbare Code-Snippets (z.B.: uppercaseFirstLetter.ts)}.
 }
