@@ -5,15 +5,14 @@ author: [Erik Berreßem]
 titlepage: true
 toc: true
 toc-own-page: true
+listings-no-page-break: true
 header-includes:
+  - \usepackage{dirtree}
   - \usepackage{ulem}
   - \usepackage[toc]{glossaries}
   - \renewcommand*{\glstextformat}[1]{\dotuline{#1}}
   - \makenoidxglossaries
   - \input{../src/glossary}
-include-after:
-  - \clearpage
-  - \printnoidxglossary[title=Glossar,sort=word]
 ---
 
 **Hinweis:** "Filme und Serien" wird in diesem Dokument als "Filme" abgekürzt.
@@ -22,7 +21,7 @@ include-after:
 
 ## Projektumfeld
 
-Das Projekt wurde von mir im Rahmen der betrieblichen Projektarbeit in meinem Ausbildungsbetrieb der inSynergie GmbH durchgeführt. Die inSynergie GmbH, gegründet im Jahr 2000, ist ein inhabergeführtes, mittelständisches Unternehmen mit zur Zeit 45 fest angestellten Mitarbeitern. Im Rahmen der Projektarbeit planen und realisieren wir ganzheitliche Lösungen in den Bereichen Medientechnik und Exponatebau. Ein zweiter Schwerpunkt ist die Entwicklung und der Vertrieb von multimedialen Steuerungsprodukten und Ihrer Software. Unser Produktportfolio beinhaltet Eigenentwicklungen aus den Bereichen: Steuerungskomponenten und Touchpanels, Audiosysteme, Videosysteme und Steuerungssysteme.
+Das Projekt wurde von mir im Rahmen der betrieblichen Projektarbeit in meinem Ausbildungsbetrieb der inSynergie GmbH durchgeführt. Die inSynergie GmbH, gegründet im Jahr 2000, ist ein inhabergeführtes, mittelständisches Unternehmen mit zur Zeit 45 fest angestellten Mitarbeitern. Im Rahmen der Projektarbeit planen und realisieren wir ganzheitliche Lösungen in den Bereichen Medientechnik und Exponatebau. Ein zweiter Schwerpunkt ist die Entwicklung und der Vertrieb von multimedialen Steuerungsprodukten und Ihrer Software. Unser Produktportfolio beinhaltet Eigenentwicklungen aus den Bereichen: Steuerungs und Touchpanels, Audiosysteme, Videosysteme und Steuerungssysteme.
 
 ## Projektziel
 
@@ -70,12 +69,24 @@ Als Entwicklungsprozess wurde die agile Softwareentwicklung verwendet, sodass w�
 
 ### React
 
-Als (+Front-End) Framework wurde (+React) gewählt. (+React) wurde mit dem Fokus erstellt, Komponenten für Webanwendungen zu erstellen. Eine (+React)-Komponente ist ein View, der von der Anwendung abgekapselt ist. Damit lassen sich zum Beispiel Buttons, Text-Elemente oder Beschriftungen isoliert und wiederverwendbar entwickeln. Zudem ist die spürbare Geschwindigkeit der Anwendung hoch, da (+React) nur DOM-Manipulationen an Komponenten ausführt dessen sichtbare Daten sich ändern.
+Als (+Front-End) Framework wurde (+React) gewählt. (+React) wurde mit dem Fokus erstellt, für Webanwendungen zu erstellen. Eine (+React)-Komponente ist ein View, der von der Anwendung abgekapselt ist. Damit lassen sich zum Beispiel Buttons, Text-Elemente oder Beschriftungen isoliert und wiederverwendbar entwickeln. Zudem ist die spürbare Geschwindigkeit der Anwendung hoch, da (+React) nur DOM-Manipulationen an ausführt dessen sichtbare Daten sich ändern.
 
 (+React) ist (+Open-Source) und wird von Facebook und einer Community einzelner Entwickler und Unternehmen gepflegt. Dadurch existiert für die Bibliothek eine sehr solide Dokumentation. Aber auch für obskurere Probleme findet man durch eine immer größer werdende Community an Entwicklern lösungen. Da (+React) unter der (+MIT-Lizenz) steht, kann es kostenlos verwendet werden.
 
 <!-- TODO mehr zu den verwendeten Bibliotheken? -->
 <!-- TODO Datenbank diagram -->
+
+# Implementierung
+
+## Front-End
+
+### Initialisierung
+
+Das Projekt wurde mit Hilfe von (+CRA) über den Befehl `yarn create react-app swiped-frontend --template typescript` initialisiert. Dies erstellt eine Basisumgebung für eine neue (+React) Einzelseitenanwendung mit (+TypeScript) als Programmiersprache, (+Webpack) als Bundler und out-of-the-box Support für viele Entwickler-Features wie zum Beispiel dem (+Hot-Reloading). Die erstellte Ordnerstruktur ist zunächst etwas "Unordentlich", weshalb ich sie zu einer Sinnvolleren Ordnerstruktur umgeändert habe ([siehe Anhang](#front-end-ordnerstruktur)). Als nächstes wurden Konfigurationen für weitere Entwickler-Tools wie zum Beispiel (+ESLint) und (+Prettier) angelegt. Diese helfen dabei den Quellcode einheitlich zu halten und nehmen einiges an Arbeit ab.
+
+### Material-UI
+
+Ich habe mich schon früh dazu entschieden die (+React)-Komponenten Bibliothek "(+Material-UI)" mit in das Projekt einzubinden. (+Material-UI), welches Google's Design-Sprache (+Material-Design) als (+React)-Komponenten implementiert, erlaubt es mit einer einheitlichen Kollektion von Basis-Komponenten zu starten. Auch das Überschreiben der Standartwerte ist durch ein Theming-Konzept sehr leicht ([siehe Anhang](#material-ui-theming-konzept)).
 
 # Qualitätskontrolle
 
@@ -89,11 +100,76 @@ Die Webapplikation wurde auch in verschiedenen Browsern und auf verschiedenen Ge
 
 ## Versionierung
 
-Von Beginn des Projektes an wurde (+Git) als Versionsverwaltung verwendet. Der Übersichtlichkeit wegen wurde jedem Commit, nach dem (+Gitmoji) prinzip, ein Emoji zugewiesen, der die Art der Änderung beschreibt, wie z.B. 🐛 für Bug-Fixes oder ✨ für das implementieren von neuen Features.
+Von Beginn des Projektes an wurde (+Git) als Versionsverwaltung verwendet. Der Übersichtlichkeit wegen wurde jedem Commit, nach dem (+Gitmoji) prinzip, ein Emoji zugewiesen, der die Art der Änderung beschreibt, wie z.B.: 🐛 für Bug-Fixes oder ✨ für das implementieren von neuen Features.
 
 # Wirtschaftlichkeitsbetrachtung
 
 ## Projektkosten
 
-Jegliche verwendete Software ist zur freien Verwendung oder Open Source verfügbar (z.B. (+React) und (+NodeJS)). Ebenso wurde die verwendete Hardware schon vor dem Projekt bezahlt. Auf dem Webserver werden auch andere Webseiten gehostet, sodass diesbezüglich auch keine weiteren Kosten angefallen sind. Somit fielen nur mein Stundenlohn als Kosten an. Für diesen Punkt wurde von einem pauschalen Stundensatz von 10€ ausgegangen. Somit ergeben sich folgende
+Jegliche verwendete Software ist zur freien Verwendung oder Open Source verfügbar (z.B.: (+React) und (+NodeJS)). Ebenso wurde die verwendete Hardware schon vor dem Projekt bezahlt. Auf dem Webserver werden auch andere Webseiten gehostet, sodass diesbezüglich auch keine weiteren Kosten angefallen sind. Somit fielen nur mein Stundenlohn als Kosten an. Für diesen Punkt wurde von einem pauschalen Stundensatz von 10€ ausgegangen. Somit ergeben sich folgende
 Projektkosten: Durchführungszeit von 70 Stunden x 10€ Kosten pro Stunde, also Projektkosten von gesamt 700,00€.
+
+\clearpage
+\printnoidxglossary[title=Glossar,sort=word]
+\clearpage
+
+\appendix
+
+# Anhang
+
+## Front-End Ordnerstruktur
+
+Initiale (+CRA) Ordnerstruktur:
+
+\dirtree{%
+.1 swiped-frontend/.
+.2 public/\DTcomment{Alle statischen Dateien (z.B.: index.html, favicon.ico)}.
+.2 src/\DTcomment{Alle Quellcode Dateien (z.B.: index.js)}.
+}
+
+Meine Ordnerstruktur:
+
+\dirtree{%
+.1 swiped-frontend/.
+.2 public/\DTcomment{Alle statischen Dateien (z.B.: index.html, favicon.ico)}.
+.2 src/.
+.3 api/\DTcomment{Quellcode der mit dem Verbindungs-Code des Back-End zu tun hat (z.B.: (+Apollo)-Client initialisierung)}.
+.3 app/\DTcomment{Einstiegspunkt des (+React)-Teils der Anwendung}.
+.3 components/\DTcomment{Globale (+React)-Komponenten, die sich in jeden Container verwenden lassen (z.B.: Button Komponente)}.
+.3 containers/\DTcomment{Hauptseiten die sich aus globalen und Container spezifischen Komponenten zusammensetzen (z.B.: Login Container)}.
+.3 store/\DTcomment{(+MobX) Stores für Daten die Global in der Anwendung erreichbar sein sollen (z.B.: Name der aktuellen Seite)}.
+.3 types/\DTcomment{Globale typisierungs-Dateien (z.B.: API typisierungen)}.
+.3 utils/\DTcomment{Nützliche und wiederverwendbare Code-Snippets (z.B.: uppercaseFirstLetter.ts)}.
+}
+
+## Material-UI Theming-Konzept
+
+```ts
+// file: src/app/theme.ts
+
+import { createMuiTheme } from "@material-ui/core/styles";
+
+export default createMuiTheme({
+  overrides: {
+    MuiButton: {
+      root: {
+        height: "min-content",
+      },
+    },
+    MuiCssBaseline: {
+      "@global": {
+        "#root": {
+          display: "grid",
+          gridTemplateRows: "max-content auto",
+          height: "100%",
+          overflow: "hidden",
+          position: "fixed",
+          width: "100%",
+        },
+      },
+    },
+  },
+});
+```
+
+Hier werden allen Material-UI Buttons die CSS-Property `height: "min-content"` hinzugefügt. Zusätzlich wird hier auch die DIV mit der ID "root" gestyled.
