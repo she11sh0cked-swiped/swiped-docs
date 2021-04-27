@@ -120,7 +120,7 @@ Die Webapplikation wurde auch in verschiedenen Browsern und auf verschiedenen Ge
 
 ## Versionierung
 
-Von Beginn des Projektes an wurde (+Git) als Versionsverwaltung verwendet. Der Übersichtlichkeit wegen wurde jedem Commit, nach dem (+Gitmoji) Prinzip, ein Emoji zugewiesen, der die Art der Änderung beschreibt; Wie zum Beispiel \emoji{bug} für Bug-Fixes oder \emoji{sparkles} für das Implementieren von neuen Features.
+Von Beginn des Projektes an wurde (+Git) als Versionsverwaltung verwendet. Der Übersichtlichkeit wegen wurde jedem Commit, nach dem (+Gitmoji) Prinzip, ein Emoji zugewiesen der die Art der Änderung beschreibt. Ein Beispiel wäre "\emoji{bug}" für das Korrigieren von Fehlern (Bugs) oder "\emoji{sparkles}" für das Implementieren von neuen Features.
 
 # Wirtschaftlichkeitsbetrachtung
 
