@@ -27,7 +27,7 @@ Das Projekt wurde von mir im Rahmen der betrieblichen Projektarbeit in meinem Au
 
 Ein Endbenutzer kann die Anwendung in einem Webbrowser seiner Wahl aufrufen. Beim ersten aufruf der Anwendung wird der Endbenutzer durch eine Login Seite darauf hingewiesen einen Account zu erstellen. Nachdem er sich angemeldet hat, wird er auf die Hauptseite umgeleitet.
 
-Dort findet er ein Kartendeck welches aus momentan populären Filmen besteht. Diese Karten kann er mit seiner Maus oder über Touch-Input bewegen. Unter den Karten liegen außerdem zwei Button-Inputs. Der linke Button ist ein rotes Kreuz und der rechte Button ein grünes Herz. Hier wird durch die Design-Entscheidung der Farben und Symbole darauf hingewiesen, dass man die Filme mit eben diesen Buttons negativ (Rotes Kreuz) oder positiv (Grünes Herz) bewerten kann. Zusätzlich kann man die Bewertung auch ausführen, indem man die Karte in die jeweilige Richtung schleudert (links: negativ; rechts: positiv). Nach 10 bewerteten Karten ist das Deck leer. Das Ergebnis wird dann aus dem (+Front-End) ((+React)) an das (+Back-End) ((+NodeJS)) weitergeleitet und in einer (+MongoDB) hinterlegt. Basierend auf diesen Bewertungen werden dann die nächsten Filme gewählt, die das Kartendeck darstellen soll.
+Dort findet er ein Kartendeck welches aus momentan populären Filmen besteht. Diese Karten kann er mit seiner Maus oder über Touch-Input bewegen. Unter den Karten liegen außerdem zwei Button-Inputs. Der linke Button ist ein rotes Kreuz und der rechte Button ein grünes Herz. Hier wird durch die Design-Entscheidung der Farben und Symbole darauf hingewiesen, dass man die Filme mit eben diesen Buttons negativ (Rotes Kreuz) oder positiv (Grünes Herz) bewerten kann. Zusätzlich kann man die Bewertung auch ausführen, indem man die Karte in die jeweilige Richtung schleudert (links: negativ; rechts: positiv). Nach 10 bewerteten Karten ist das Deck leer. Das Ergebnis wird dann aus dem (+FrontEnd) ((+React)) an das (+BackEnd) ((+NodeJS)) weitergeleitet und in einer (+MongoDB) hinterlegt. Basierend auf diesen Bewertungen werden dann die nächsten Filme gewählt, die das Kartendeck darstellen soll.
 
 Über eine Navigationsleiste gelangt der Endbenutzer zur Gruppenübersichts-Seite. Auf dieser findet er alle Gruppen denen er beigetreten ist und hat die möglichkeit neue Gruppen zu erstellen. Wenn er auf eine Gruppe klick wird er zu der Detail-Seite dieser umgeleitet. Hier findet er eine Liste der von ihm und anderen Gruppenmitgliedern positiv bewerteten Filmen. Je mehr positive Bewertungen ein Film erhält, desto mehr Sterne erhält dieser und desto höher wird er in der Liste angezeigt. Mit 5 Sternen erreicht ein Film die höchste Bewertung, welche durch eine Farbänderung der Herzen gekennzeichnet wird.
 
@@ -39,7 +39,7 @@ Der Zweck dieser Anwendung ist es ein realistisches Projekt-Ziel zu haben in den
 
 Der Endbenutzer kann die Webanwendung in jedem aktuellen Browser und auf einer Vielzahl von Geräten wie PCs, Notebooks über Tablets bis hin zu Smartphone aufrufen.
 
-Das (+Front-End) der Webanwendung läuft auf einem (+NginX)-Server und das (+Back-End) läuft auf einem (+NodeJS)-Server mit (+Express) und (+MongoDB).
+Das (+FrontEnd) der Webanwendung läuft auf einem (+NginX)-Server und das (+BackEnd) läuft auf einem (+NodeJS)-Server mit (+Express) und (+MongoDB).
 
 Genehmigt wurde das Projekt von der Leitung der Entwicklungsabteilung. Dieser wurde auch der aktuelle Stand zweimal wöchentlich präsentiert, sowie über eine zu jeden Tag aktualisierte Test-Installation zugänglich gemacht.
 
@@ -69,9 +69,9 @@ Als Entwicklungsprozess wurde die agile Softwareentwicklung verwendet, sodass w�
 
 ### React
 
-Als (+Front-End) Framework wurde (+React) gewählt. (+React) wurde mit dem Fokus erstellt, für Webanwendungen zu erstellen. Eine (+React)-Komponente ist ein View, der von der Anwendung abgekapselt ist. Damit lassen sich zum Beispiel Buttons, Text-Elemente oder Beschriftungen isoliert und wiederverwendbar entwickeln. Zudem ist die spürbare Geschwindigkeit der Anwendung hoch, da (+React) nur DOM-Manipulationen an ausführt dessen sichtbare Daten sich ändern.
+Als (+FrontEnd) Framework wurde (+React) gewählt. (+React) wurde mit dem Fokus erstellt, für Webanwendungen zu erstellen. Eine (+React)-Komponente ist ein View, der von der Anwendung abgekapselt ist. Damit lassen sich zum Beispiel Buttons, Text-Elemente oder Beschriftungen isoliert und wiederverwendbar entwickeln. Zudem ist die spürbare Geschwindigkeit der Anwendung hoch, da (+React) nur DOM-Manipulationen an ausführt dessen sichtbare Daten sich ändern.
 
-(+React) ist (+Open-Source) und wird von Facebook und einer Community einzelner Entwickler und Unternehmen gepflegt. Dadurch existiert für die Bibliothek eine sehr solide Dokumentation. Aber auch für obskurere Probleme findet man durch eine immer größer werdende Community an Entwicklern lösungen. Da (+React) unter der (+MIT-Lizenz) steht, kann es kostenlos verwendet werden.
+(+React) ist (+OpenSource) und wird von Facebook und einer Community einzelner Entwickler und Unternehmen gepflegt. Dadurch existiert für die Bibliothek eine sehr solide Dokumentation. Aber auch für obskurere Probleme findet man durch eine immer größer werdende Community an Entwicklern lösungen. Da (+React) unter der (+MITLizenz) steht, kann es kostenlos verwendet werden.
 
 <!-- TODO mehr zu den verwendeten Bibliotheken? -->
 <!-- TODO Datenbank diagram -->
@@ -82,13 +82,19 @@ Als (+Front-End) Framework wurde (+React) gewählt. (+React) wurde mit dem Fokus
 
 ### Initialisierung
 
-Das Projekt wurde mit Hilfe von (+CRA) über den Befehl `yarn create react-app swiped-frontend --template typescript` initialisiert. Dies erstellt eine Basisumgebung für eine neue (+React) Einzelseitenanwendung mit (+TypeScript) als Programmiersprache, (+Webpack) als Bundler und out-of-the-box Support für viele Entwickler-Features wie zum Beispiel dem (+Hot-Reloading). Die erstellte Ordnerstruktur ist zunächst etwas "Unordentlich", weshalb ich sie zu einer Sinnvolleren Ordnerstruktur umgeändert habe ([siehe Anhang](#front-end-ordnerstruktur)). Als nächstes wurden Konfigurationen für weitere Entwickler-Tools wie zum Beispiel (+ESLint) und (+Prettier) angelegt. Diese helfen dabei den Quellcode einheitlich zu halten und nehmen einiges an Arbeit ab.
+Das Projekt wurde mit Hilfe von (+CreateReactApp) über den Befehl `yarn create react-app swiped-frontend --template typescript` initialisiert. Dies erstellt eine Basisumgebung für eine neue (+React) Einzelseitenanwendung mit (+TypeScript) als Programmiersprache, (+Webpack) als Bundler und out-of-the-box Support für viele Entwickler-Features wie zum Beispiel dem (+HotReloading). Die erstellte Ordnerstruktur ist zunächst etwas "Unordentlich", weshalb sie zu einer Sinnvolleren Ordnerstruktur umgeändert wurde ([siehe Anhang](#front-end-ordnerstruktur)). Als nächstes wurden Konfigurationen für weitere Entwickler-Tools wie zum Beispiel (+ESLint) und (+Prettier) angelegt. Diese helfen dabei den Quellcode einheitlich zu halten und nehmen einiges an Arbeit ab.
 
-### Material-UI
+### Styling
 
-Ich habe mich schon früh dazu entschieden die (+React)-Komponenten Bibliothek "(+Material-UI)" mit in das Projekt einzubinden. (+Material-UI), welches Google's Design-Sprache (+Material-Design) als (+React)-Komponenten implementiert, erlaubt es mit einer einheitlichen Kollektion von Basis-Komponenten zu starten. Auch das Überschreiben der Standartwerte ist durch ein Theming-Konzept sehr leicht ([siehe Anhang](#material-ui-theming-konzept)).
+Ich habe mich schon früh dazu entschieden die (+React)-Komponenten Bibliothek "(+MaterialUI)" mit in das Projekt einzubinden. (+MaterialUI), welches Google's Design-Sprache (+MaterialDesign) als (+React)-Komponenten implementiert, erlaubt es mit einer einheitlichen Kollektion von Basis-Komponenten zu starten. Auch das Überschreiben der Standartwerte ist durch ein Theming-Konzept sehr leicht ([siehe Anhang](#material-ui-theming-konzept)). Styling wird bei der Verwendung von (+MaterialUI) nicht in CSS, sondern dank (+JSS) in JavaScript geschrieben. Dies ermöglicht es CSS dynamisch aus dem Quellcode zu manipulieren ([siehe Anhang](#styling-mit-material-ui)).
+
+### Animationen
+
+Für die Animationen der Karten wurde sich entschieden (+ReactSpring) im Zusammenspiel mit (+ReactUseGesture) zu verwenden. Dies stellt, wie auch (+MaterialUI), einen Quellcode nahen Ansatz für CSS manipulationen dar ([siehe Anhang](#react-spring--react-use-gesture-beispiel)).
 
 # Qualitätskontrolle
+
+<!-- TODO linter -->
 
 ## Manuelle Tests
 
@@ -119,7 +125,7 @@ Projektkosten: Durchführungszeit von 70 Stunden x 10€ Kosten pro Stunde, also
 
 ## Front-End Ordnerstruktur
 
-Initiale (+CRA) Ordnerstruktur:
+Initiale (+CreateReactApp) Ordnerstruktur:
 
 \dirtree{%
 .1 swiped-frontend/.
@@ -172,4 +178,76 @@ export default createMuiTheme({
 });
 ```
 
-Hier werden allen Material-UI Buttons die CSS-Property `height: "min-content"` hinzugefügt. Zusätzlich wird hier auch die DIV mit der ID "root" gestyled.
+Hier werden allen (+MaterialUI) Buttons die CSS-Property `height: "min-content"` hinzugefügt. Zusätzlich wird hier auch die DIV mit der ID "root" gestyled.
+
+## Styling mit Material-UI
+
+```tsx
+// file: src/containers/group/components/list/List.tsx
+
+import { withStyles } from "@material-ui/core";
+
+import styledBy from "utils/styledBy";
+
+// [...]
+
+const StyledRating = withStyles({
+  iconFilled: {
+    color: styledBy("color", {
+      default: undefined,
+      red: red[400],
+    }),
+  },
+})(Rating);
+
+// [...]
+
+const List: FC<IProps> = ({ matches, membersCount }) => {
+  const classes = useStyles();
+
+  return (
+    <MaterialList>
+      {matches.map((match) => {
+        const rating = ((match.count ?? 1) / membersCount) * 5;
+
+        // [...]
+
+        return (
+          <ListItem disableGutters key={match.media.id}>
+            {/* [...] */}
+            <StyledRating color={rating < 5 ? "red" : "default"} /* [...] */ />
+            {/* [...] */}
+          </ListItem>
+        );
+      })}
+    </MaterialList>
+  );
+};
+
+export default List;
+```
+
+Hier werden die Sterne der Match-Karten auf der Gruppen Seite, je nach dem ob die Bewertungen fünf Sterne erreicht haben, entweder Rot oder Golden gefärbt.
+
+## React-Spring / React-Use-Gesture Beispiel
+
+```tsx
+// taken from: https://use-gesture.netlify.app/docs
+
+import { useSpring, animated } from "@react-spring/web";
+import { useDrag } from "react-use-gesture";
+
+function PullRelease() {
+  const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }));
+
+  // Set the drag hook and define component movement based on gesture data
+  const bind = useDrag(({ down, movement: [mx, my] }) => {
+    api.start({ x: down ? mx : 0, y: down ? my : 0 });
+  });
+
+  // Bind it to a component
+  return <animated.div {...bind()} style={{ x, y }} />;
+}
+```
+
+Das Ergebnis ist eine DIV die bei gedrückter Maus / gepressten Finger den Pointer folgt und sich zur Mitte zurückzieht, wenn man loslässt. Für eine Animierte Version kann man auch die Dokumentations-Seite von (+ReactUseGesture) (unter [https://use-gesture.netlify.app/docs](https://use-gesture.netlify.app/docs)) besuchen, dem dieses Beispiel entnommen wurde.
