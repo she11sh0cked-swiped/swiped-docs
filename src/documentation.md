@@ -7,9 +7,13 @@ toc: true
 toc-own-page: true
 listings-no-page-break: true
 header-includes:
-  - \usepackage{dirtree}
-  - \usepackage{ulem}
   - \usepackage[toc]{glossaries}
+  - \usepackage{dirtree}
+  - \usepackage{emoji}
+  - \usepackage{ulem}
+
+  - \setemojifont{Segoe UI Emoji}
+
   - \renewcommand*{\glstextformat}[1]{\dotuline{#1}}
   - \makenoidxglossaries
   - \input{../src/glossary}
@@ -106,7 +110,7 @@ Die Webapplikation wurde auch in verschiedenen Browsern und auf verschiedenen Ge
 
 ## Versionierung
 
-Von Beginn des Projektes an wurde (+Git) als Versionsverwaltung verwendet. Der Übersichtlichkeit wegen wurde jedem Commit, nach dem (+Gitmoji) prinzip, ein Emoji zugewiesen, der die Art der Änderung beschreibt, wie z.B.: 🐛 für Bug-Fixes oder ✨ für das implementieren von neuen Features.
+Von Beginn des Projektes an wurde (+Git) als Versionsverwaltung verwendet. Der Übersichtlichkeit wegen wurde jedem Commit, nach dem (+Gitmoji) prinzip, ein Emoji zugewiesen, der die Art der Änderung beschreibt, wie z.B.: \emoji{bug} für Bug-Fixes oder \emoji{sparkles} für das implementieren von neuen Features.
 
 # Wirtschaftlichkeitsbetrachtung
 
@@ -125,7 +129,7 @@ Projektkosten: Durchführungszeit von 70 Stunden x 10€ Kosten pro Stunde, also
 
 ## Front-End Ordnerstruktur
 
-Initiale (+CreateReactApp) Ordnerstruktur:
+**Initiale (+CreateReactApp) Ordnerstruktur:**
 
 \dirtree{%
 .1 swiped-frontend/.
@@ -133,7 +137,7 @@ Initiale (+CreateReactApp) Ordnerstruktur:
 .2 src/\DTcomment{Alle Quellcode Dateien (z.B.: index.js)}.
 }
 
-Meine Ordnerstruktur:
+**Meine Ordnerstruktur:**
 
 \dirtree{%
 .1 swiped-frontend/.

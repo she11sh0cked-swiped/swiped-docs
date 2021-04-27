@@ -6,3 +6,4 @@
 - miktex
 - pdftk
 - Fira Code
+- Segoe UI Emoji
