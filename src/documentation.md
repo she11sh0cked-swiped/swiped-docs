@@ -61,7 +61,7 @@ Das Projekt wurde innerhalb von 70 Stunden durchgeführt.
 
 ## Abweichungen vom Projektantrag
 
-Aspekte der Implementierung wurden aus zeitlichen Gründen ausgelassen. Dabei wurde darauf geachtet, dass keine Core-Konzepte entfallen. Zu den nicht implementierten Seiten zählen die "Film-Details", "Benutzerprofil", sowie die "Neuer Benutzer" Seite. Die letztere Seite wurde ausgelassen, da ein ähnliches Feature bereits in der "Swiping-Game" Seite, durch das Empfehlen von populärer Filmen existierte.
+Aspekte der Implementierung wurden aus zeitlichen Gründen ausgelassen. Dabei wurde darauf geachtet, dass keine Core-Konzepte entfallen. Zu den nicht Implementierten Seiten zählen die "Film-Details", "Benutzerprofil", sowie die "Neuer Benutzer" Seite. Die letztere Seite wurde ausgelassen, da ein ähnliches Feature bereits in der "Swiping-Game" Seite, durch das Empfehlen von populärer Filmen existierte.
 
 ## Entwicklungsprozess
 
@@ -90,7 +90,7 @@ Das Projekt wurde mit Hilfe von (+CreateReactApp) über den Befehl `yarn create 
 
 ### Styling
 
-Ich habe mich schon früh dazu entschieden die (+React)-Komponenten Bibliothek "(+MaterialUI)" mit in das Projekt einzubinden. (+MaterialUI), welches Google's Design-Sprache (+MaterialDesign) als (+React)-Komponenten implementiert, erlaubt es mit einer einheitlichen Kollektion von Basis-Komponenten zu starten. Auch das Überschreiben der Standartwerte ist durch ein Theming-Konzept sehr leicht ([siehe Anhang](#material-ui-theming-konzept)). Styling wird bei der Verwendung von (+MaterialUI) nicht in CSS, sondern dank (+JSS) in JavaScript geschrieben. Dies ermöglicht es CSS dynamisch aus dem Quellcode zu manipulieren ([siehe Anhang](#styling-mit-material-ui)).
+Ich habe mich schon früh dazu entschieden die (+React)-Komponenten Bibliothek "(+MaterialUI)" mit in das Projekt einzubinden. (+MaterialUI), welches Google's Design-Sprache (+MaterialDesign) als (+React)-Komponenten Implementiert, erlaubt es mit einer einheitlichen Kollektion von Basis-Komponenten zu starten. Auch das Überschreiben der Standartwerte ist durch ein Theming-Konzept sehr leicht ([siehe Anhang](#material-ui-theming-konzept)). Styling wird bei der Verwendung von (+MaterialUI) nicht in CSS, sondern dank (+JSS) in JavaScript geschrieben. Dies ermöglicht es CSS dynamisch aus dem Quellcode zu manipulieren ([siehe Anhang](#styling-mit-material-ui)).
 
 ### Animationen
 
@@ -120,7 +120,7 @@ Die Webapplikation wurde auch in verschiedenen Browsern und auf verschiedenen Ge
 
 ## Versionierung
 
-Von Beginn des Projektes an wurde (+Git) als Versionsverwaltung verwendet. Der Übersichtlichkeit wegen wurde jedem Commit, nach dem (+Gitmoji) prinzip, ein Emoji zugewiesen, der die Art der Änderung beschreibt, wie z.B.: \emoji{bug} für Bug-Fixes oder \emoji{sparkles} für das implementieren von neuen Features.
+Von Beginn des Projektes an wurde (+Git) als Versionsverwaltung verwendet. Der Übersichtlichkeit wegen wurde jedem Commit, nach dem (+Gitmoji) Prinzip, ein Emoji zugewiesen, der die Art der Änderung beschreibt; Wie zum Beispiel \emoji{bug} für Bug-Fixes oder \emoji{sparkles} für das Implementieren von neuen Features.
 
 # Wirtschaftlichkeitsbetrachtung
 
