@@ -5,3 +5,4 @@
 - pandoc
 - miktex
 - pdftk
+- Fira Code
