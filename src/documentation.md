@@ -98,7 +98,17 @@ Für die Animationen der Karten wurde sich entschieden (+ReactSpring) im Zusamme
 
 # Qualitätskontrolle
 
-<!-- TODO linter -->
+## Statische Quellcode-Analyse
+
+Zur statischen Code-Analyse wurde ein auf das Projekt zugeschnittenes (+ESLint)-Regelwerk angelegt. Dieses enthält spezielle Regeln für (+React) und (+React-Hooks), (+TypeScript), Sortier-Reihenfolgen und vieles mehr. Dies ist sehr hilfreich, da es einfache Fehler im Quellcode durch Warnungen verhindert.
+
+Die Regelwerke kann man sich aus dem Stammverzeichnis der Projekte unter der Datei `/.eslintrc.js` entnehmen.
+
+## Quellcode formatierung
+
+Damit der Quellcode einheitlich bleibt wurde das Code-Formatier Tool "(+Prettier)" eingesetzt. Auch hier wurde eine Konfigurations-Datei angelegt, die allerdings größtenteils die Standartwerte des Tools übernimmt. Die einzig angepassten Regeln sind das ausschalten von Semikolons und das Anpassen des Anführungszeichen-Charakters auf ein einfaches Anführungszeichen.
+
+Auch diese Konfigurationen lassen sich im Stammverzeichnis der Projekte unter der Datei `/.preettierrc.js` einsehen.
 
 ## Manuelle Tests
 
