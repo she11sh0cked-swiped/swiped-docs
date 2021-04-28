@@ -5,7 +5,6 @@ author: [Erik Berreßem]
 titlepage: true
 toc: true
 toc-own-page: true
-listings-no-page-break: true
 header-includes:
   - \usepackage[toc]{glossaries}
   - \usepackage{dirtree}
@@ -85,7 +84,11 @@ Ich habe mich schon früh dazu entschieden die (+React)-Komponenten Bibliothek "
 
 #### Animationen
 
-Für die Animationen der Karten wurde sich entschieden (+ReactSpring) im Zusammenspiel mit (+ReactUseGesture) zu verwenden. Dies stellt, wie auch (+MaterialUI), einen Quellcode nahen Ansatz für CSS manipulationen dar ([siehe Anhang](#react-spring--react-use-gesture-beispiel)).
+Für die Animationen der Karten wurde sich entschieden (+ReactSpring) im Zusammenspiel mit (+ReactUseGesture) zu verwenden. Dies stellt, wie auch (+MaterialUI), einen Quellcode nahen Ansatz für CSS manipulationen dar ([siehe Anhang](#react-spring--react-use-gesture-animations-beispiel)).
+
+#### Formulare
+
+Die Formulare der Login-, Registrier-, sowie der Gruppen-Editier Seiten benutzen ein Tool names "(+ReactHookForm)". Mit diesem Tool kann man leicht Formulare Implementierung, ohne das man auf Daten-Felder, Validatoren und andere Sachen um die man sich normalerweise selber kümmern müsste achten muss. Hierzu verwendet man einfach Wrapper-Komponenten, die sich dann Intern selbständig einen State zusammenstellen ([siehe Anhang](#react-hook-form-formular-beispiel)).
 
 ### Details
 
@@ -97,7 +100,7 @@ Das Projekt wurde mit Hilfe von (+CreateReactApp) über den Befehl `yarn create 
 
 ## Statische Quellcode-Analyse
 
-Zur statischen Code-Analyse wurde ein auf das Projekt zugeschnittenes (+ESLint)-Regelwerk angelegt. Dieses enthält spezielle Regeln für (+React) und (+ReactHooks), (+TypeScript), Sortier-Reihenfolgen und vieles mehr. Dies ist sehr hilfreich, da es einfache Fehler im Quellcode durch Warnungen verhindert.
+Zur statischen Code-Analyse wurde ein auf das Projekt zugeschnittenes (+ESLint)-Regelwerk angelegt. Dieses enthält spezielle Regeln für (+React) und (+^ReactHook), (+TypeScript), Sortier-Reihenfolgen und vieles mehr. Dies ist sehr hilfreich, da es einfache Fehler im Quellcode durch Warnungen verhindert.
 
 Die Regelwerke kann man sich aus dem Stammverzeichnis der Projekte unter der Datei `.eslintrc.js` entnehmen.
 
@@ -134,35 +137,14 @@ Projektkosten: Durchführungszeit von 70 Stunden x 10€ Kosten pro Stunde, also
 
 # Anhang
 
-## Front-End Ordnerstruktur
+**Hinweis:** Die hier zu findenden Code-Beispiele wurden gekürzt, damit die angesprochenden Punkte klarer erklärt werden. Funktionsfähige Versionen dieser Dateien kann man in jeden Beispiel unter `// file: path/to/file` finden.
 
-**Initiale Create-React-App Ordnerstruktur:**
-
-\dirtree{%
-.1 swiped-frontend/.
-.2 public/\DTcomment{Alle statischen Dateien (z.B.: index.html, favicon.ico)}.
-.2 src/\DTcomment{Alle Quellcode Dateien (z.B.: index.js)}.
-}
-
-**Meine Ordnerstruktur:**
-
-\dirtree{%
-.1 swiped-frontend/.
-.2 public/\DTcomment{Alle statischen Dateien (z.B.: index.html, favicon.ico)}.
-.2 src/.
-.3 api/\DTcomment{Quellcode der mit dem Verbindungs-Code des \gls{BackEnd} zu tun hat (z.B.: \gls{Apollo}-Client initialisierung)}.
-.3 app/\DTcomment{Einstiegspunkt des \gls{React}-Teils der Anwendung}.
-.3 components/\DTcomment{Globale \gls{React}-Komponenten, die sich in jeden Container verwenden lassen (z.B.: Button Komponente)}.
-.3 containers/\DTcomment{Hauptseiten die sich aus globalen und Container spezifischen Komponenten zusammensetzen (z.B.: Login Container)}.
-.3 store/\DTcomment{\gls{MobX} Stores für Daten die Global in der Anwendung erreichbar sein sollen (z.B.: Name der aktuellen Seite)}.
-.3 types/\DTcomment{Globale typisierungs-Dateien (z.B.: API typisierungen)}.
-.3 utils/\DTcomment{Nützliche und wiederverwendbare Code-Snippets (z.B.: uppercaseFirstLetter.ts)}.
-}
+\clearpage
 
 ## Material-UI Theming-Konzept
 
 ```ts
-// file: src/app/theme.ts
+// file: src\app\theme.ts
 
 import { createMuiTheme } from "@material-ui/core/styles";
 
@@ -191,16 +173,16 @@ export default createMuiTheme({
 
 Hier werden allen (+MaterialUI) Buttons die CSS-Property `height: "min-content"` hinzugefügt. Zusätzlich wird hier auch die DIV mit der ID "root" gestyled.
 
+\clearpage
+
 ## Styling mit Material-UI
 
 ```tsx
-// file: src/containers/group/components/list/List.tsx
+// file: src\containers\group\components\list\List.tsx
 
 import { withStyles } from "@material-ui/core";
 
 import styledBy from "utils/styledBy";
-
-// [...]
 
 const StyledRating = withStyles({
   iconFilled: {
@@ -211,36 +193,32 @@ const StyledRating = withStyles({
   },
 })(Rating);
 
-// [...]
-
-const List: FC<IProps> = ({ matches, membersCount }) => {
-  const classes = useStyles();
-
+function MyList({ matches, membersCount }) {
   return (
-    <MaterialList>
+    <List>
       {matches.map((match) => {
-        const rating = ((match.count ?? 1) / membersCount) * 5;
-
-        // [...]
+        const rating = (match.count / membersCount) * 5;
 
         return (
-          <ListItem disableGutters key={match.media.id}>
-            {/* [...] */}
-            <StyledRating color={rating < 5 ? "red" : "default"} /* [...] */ />
-            {/* [...] */}
+          <ListItem>
+            <StyledRating color={rating < 5 ? "red" : "default"} />
           </ListItem>
         );
       })}
-    </MaterialList>
+    </List>
   );
-};
+}
 
 export default List;
 ```
 
 Hier werden die Sterne der Match-Karten auf der Gruppen Seite, je nach dem ob die Bewertungen fünf Sterne erreicht haben, entweder Rot oder Golden gefärbt.
 
-## React-Spring / React-Use-Gesture Beispiel
+\clearpage
+
+## React-Spring + React-Use-Gesture Animations Beispiel
+
+**Hinweis:** Hier wurde darauf verzichtet ein Beispiel aus Projekt zu entnehmen, da der relevante Code (`src\containers\swiping\components\deck\Deck.tsx`) zu komplex war um ihn zu kürzen.
 
 ```tsx
 // taken from: https://use-gesture.netlify.app/docs
@@ -262,3 +240,91 @@ function PullRelease() {
 ```
 
 Das Ergebnis ist eine DIV die bei gedrückter Maus / gepressten Finger den Pointer folgt und sich zur Mitte zurückzieht, wenn man loslässt. Für eine Animierte Version kann man auch die Dokumentations-Seite von (+ReactUseGesture) (unter [https://use-gesture.netlify.app/docs](https://use-gesture.netlify.app/docs)) besuchen, dem dieses Beispiel entnommen wurde.
+
+\clearpage
+
+## React-Hook-Form Formular Beispiel
+
+```tsx
+// file: src\containers\groupEdit\GroupEdit.tsx
+
+import { Controller, useForm } from "react-hook-form";
+
+import {
+  CreateGroupMutationVariables,
+  useCreateGroupMutation,
+} from "./GroupEdit.generated";
+
+const GroupEdit: FC<IProps> = ({ history }) => {
+  const [createGroup] = useCreateGroupMutation();
+
+  const {
+    control,
+    getValues,
+    handleSubmit,
+  } = useForm<CreateGroupMutationVariables>();
+
+  const handleFormSubmit = useMemo(
+    () =>
+      handleSubmit((data) => {
+        void createGroup({ variables: data });
+      }),
+    [createGroup, handleSubmit]
+  );
+
+  return (
+    <form onSubmit={handleFormSubmit}>
+      <Controller
+        control={control}
+        name="record.name"
+        render={({ field: { field }, fieldState: { error } }) => (
+          <TextField
+            error={error != null}
+            helperText={error?.message}
+            required
+            {...field}
+          />
+        )}
+      />
+      <Button type="submit">Save</Button>
+    </form>
+  );
+};
+
+export default GroupEdit;
+```
+
+Hier wird ein Formular zum Erstellen einer neuen Gruppe Implementiert. Die Typen-Definition `CreateGroupMutationVariables` enthält die von der `createGroup` Mutation benötigte Objekt-Form. Diese Definition wird beim Aufruf der (+ReactHook) `useForm` verwendet, welche dann Informationen für Code-Vervollständigungs Tools bereitstellt. Zum Einsatz kommen diese Code-Vervollständigungen dann zum Beispiel beim Setzen der `name` Property bei der Wrapper-Komponente `Controller`.
+
+Der spread von `{...field}` in der `TextField` Komponente meldet dann die benötigten (+React) Properties an welche von (+ReactHookForm) benötigt werden, um den eingegebenen Wert auszulesen, zu verarbeitet und darzustellen.
+
+Letztendlich wird mit `handleSubmit` noch definiert was bei einer Erfolgreichen Eingabe ausgelöst werden soll. In diesen Fall wird `createGroup` mit den eben eingegebenen Werten aufgerufen und somit eine neue Gruppe erstellt.
+
+\clearpage
+
+## Front-End Ordnerstruktur
+
+**Initiale Create-React-App Ordnerstruktur:**
+
+\dirtree{%
+.1 swiped-frontend/.
+.2 public/\DTcomment{Alle statischen Dateien (z.B.: index.html, favicon.ico)}.
+.2 src/\DTcomment{Alle Quellcode Dateien (z.B.: index.js)}.
+}
+
+**Meine Ordnerstruktur:**
+
+\dirtree{%
+.1 swiped-frontend/.
+.2 public/\DTcomment{Alle statischen Dateien (z.B.: index.html, favicon.ico)}.
+.2 src/.
+.3 api/\DTcomment{Quellcode der mit dem Verbindungs-Code des \gls{BackEnd} zu tun hat (z.B.: \gls{Apollo}-Client initialisierung)}.
+.3 app/\DTcomment{Einstiegspunkt des \gls{React}-Teils der Anwendung}.
+.3 components/\DTcomment{Globale \gls{React}-Komponenten, die sich in jeden Container verwenden lassen (z.B.: Button Komponente)}.
+.3 containers/\DTcomment{Hauptseiten die sich aus globalen und Container spezifischen Komponenten zusammensetzen (z.B.: Login Container)}.
+.3 store/\DTcomment{\gls{MobX} Stores für Daten die Global in der Anwendung erreichbar sein sollen (z.B.: Name der aktuellen Seite)}.
+.3 types/\DTcomment{Globale typisierungs-Dateien (z.B.: API typisierungen)}.
+.3 utils/\DTcomment{Nützliche und wiederverwendbare Code-Snippets (z.B.: uppercaseFirstLetter.ts)}.
+}
+
+\clearpage
