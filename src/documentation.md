@@ -92,6 +92,16 @@ Für die Animationen der Karten wurde sich entschieden (+ReactSpring) im Zusamme
 
 Die Formulare der Login-, Registrier-, sowie der Gruppen-Editier Seiten benutzen ein Tool names "(+ReactHookForm)". Mit diesem Tool kann man leicht Formulare Implementierung, ohne das man auf Daten-Felder, Validatoren und andere Sachen um die man sich normalerweise selber kümmern müsste achten muss. Hierzu verwendet man einfach Wrapper-Komponenten, die sich dann Intern selbständig einen State zusammenstellen ([siehe Anhang](#react-hook-form-formular-beispiel)).
 
+### Back-End Kommunikation
+
+Das (+FrontEnd) kommuniziert mit dem (+BackEnd) über eine (+GraphQL)-Schnittstelle. Genauer gesagt wird auf beiden Seiten der Anwendung eine (+Apollo)-Platform eingerichtet und verwendet. Das benutzen von (+Apollo) hat mehrere Vorteile, wie z.B.: 100% kompatibilität, da im (+BackEnd) der (+Apollo)-Server und im (+FrontEnd) der (+Apollo)-Client verwendet wird, und einfaches Eintrichten mit vielen Konfigurations möglichkeiten
+
+## Back-End
+
+### Datenquelle
+
+Für die Film Informationen wird eine öffentlich zugängliche API-Schnittstelle namens The Movie Database ((+TMDb)) verwendet. Statt die Anfragen direkt aus dem (+FrontEnd) an diese API zu senden, wird hier allerdings das (+BackEnd) als (+Proxy) verwendet. Das (+FrontEnd) sendet also Anfragen an das (+BackEnd), welches dann die benötigten (+TMDb) API-Anfragen macht. Die darauffolgenden Antworten werden dann an das (+FrontEnd) weiter geleitet. Dies verhindert, dass der geheime API-Schlüssel bekannt gemacht wird. Zusätzlich hat man so auch die Option die empfangenden Daten zu manipulieren oder sonstig zu verarbeiten. Im Falle dieses Projektes ist es zum Beispiel wichtig, dass die (+TMDb) API-Anfragen zwischengespeichert werden, da sonst sehr schnell die tägliche Quota aufgebraucht wird ([siehe Anhang](#ablauf-von-film-api-anfragen)).
+
 # Qualitätskontrolle
 
 ## Statische Quellcode-Analyse
@@ -322,5 +332,28 @@ Hier wird ein Formular zum Erstellen einer neuen Gruppe Implementiert. Die Typen
 Der spread von `{...field}` in der `TextField` Komponente meldet dann die benötigten (+React) Properties an welche von (+ReactHookForm) benötigt werden, um den eingegebenen Wert auszulesen, zu verarbeitet und darzustellen.
 
 Letztendlich wird mit `handleSubmit` noch definiert was bei einer Erfolgreichen Eingabe ausgelöst werden soll. In diesen Fall wird `createGroup` mit den eben eingegebenen Werten aufgerufen und somit eine neue Gruppe erstellt.
+
+\clearpage
+
+## Ablauf von TMDb API-Anfragen
+
+```mermaid
+sequenceDiagram
+  participant F as Front-End
+  participant B as Back-End
+  participant T as TMDb
+
+  F->>B: Anfrage: Film mit der ID "abcdef123456"
+
+  B->>B: Ist der Film im Zwischenspeicher?
+  opt Nicht im Zwischenspeicher
+    B->>T: Anfrage: Film mit der ID "abcdef123456"
+    T->>B: Antwort: Film mit der ID "abcdef123456"
+
+    B->>B: Speicher den Film im Zwischenspeicher
+  end
+
+  B->>F: Antwort: Film mit der ID "abcdef123456"
+```
 
 \clearpage
