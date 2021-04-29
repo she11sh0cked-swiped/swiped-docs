@@ -98,6 +98,10 @@ Das (+FrontEnd) kommuniziert mit dem (+BackEnd) über eine (+GraphQL)-Schnittste
 
 ## Back-End
 
+### Initialisierung
+
+Es wurde sich dafür entschieden auch im (+BackEnd) (+Webpack) einzusetzen. Auf diese Weise wird der (+TypeScript) Quellcode nach dem (+Transkompilieren) in eine durch (+NodeJS) ausführbare Bundle-Datei gepackt. Wie im (+FrontEnd) wurden auch hier weitere Konfigurationen (z.B.: (+EsLint) und (+Prettier)) angelegt und auf das Projekt angepasst.
+
 ### Datenquelle
 
 Für die Film Informationen wird eine öffentlich zugängliche API-Schnittstelle namens The Movie Database ((+TMDb)) verwendet. Statt die Anfragen direkt aus dem (+FrontEnd) an diese API zu senden, wird hier allerdings das (+BackEnd) als (+Proxy) verwendet. Das (+FrontEnd) sendet also Anfragen an das (+BackEnd), welches dann die benötigten (+TMDb) API-Anfragen macht. Die darauffolgenden Antworten werden dann an das (+FrontEnd) weiter geleitet. Dies verhindert, dass der geheime API-Schlüssel bekannt gemacht wird. Zusätzlich hat man so auch die Option die empfangenden Daten zu manipulieren oder sonstig zu verarbeiten. Im Falle dieses Projektes ist es zum Beispiel wichtig, dass die (+TMDb) API-Anfragen zwischengespeichert werden, da sonst sehr schnell die tägliche Quota aufgebraucht wird (siehe Anhang [AA](#ablauf-von-film-api-anfragen)).
