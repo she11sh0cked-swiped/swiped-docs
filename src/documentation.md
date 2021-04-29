@@ -100,7 +100,7 @@ Das (+FrontEnd) kommuniziert mit dem (+BackEnd) über eine (+GraphQL)-Schnittste
 
 ### Initialisierung
 
-Es wurde sich dafür entschieden auch im (+BackEnd) (+Webpack) einzusetzen. Auf diese Weise wird der (+TypeScript) Quellcode nach dem (+Transkompilieren) in eine durch (+NodeJS) ausführbare Bundle-Datei gepackt. Wie im (+FrontEnd) wurden auch hier weitere Konfigurationen (z.B.: (+EsLint) und (+Prettier)) angelegt und auf das Projekt angepasst.
+Es wurde sich dafür entschieden auch im (+BackEnd) (+Webpack) einzusetzen. Auf diese Weise wird der (+TypeScript) Quellcode nach dem Transcompilen (siehe (+Transpiler)) in eine durch (+NodeJS) ausführbare Bundle-Datei gepackt. Wie im (+FrontEnd) wurden auch hier weitere Konfigurationen (z.B.: (+ESLint) und (+Prettier)) angelegt und auf das Projekt angepasst.
 
 ### Datenquelle
 
@@ -109,6 +109,10 @@ Für die Film Informationen wird eine öffentlich zugängliche API-Schnittstelle
 ### Datenbank
 
 Als Datenbank wird (+MongoDB) im Zusammenspiel mit (+Mongoose) als Datenbankadapter verwendet. Die Datenbank-Schemas sind, zusammen mit den API-Definitionen unter `src\schema` zu finden. Dort werden auch die Relationen definiert. (siehe Anhang [AA](#uml-diagram) und [AA](#erstellen-eines-schemas))
+
+### Authentifizierung
+
+Die Endbenutzer Authentifizierung wurde mit (+Bcrypt) und JSON-Web-Token ((+JWT)) realisiert. Das heißt, dass die Passwörter der Endbenutzer Dank (+Bcrypt)-Verschlüsselung nicht im Klartext in der Datenbank gespeichert werden. Durch (+JWT) werden dem Endbenutzer (bzw. dem (+FrontEnd)) Tokens bereitgestellt, mit denen man sich gegenüber der (+GraphQL)-Schnittstelle Authentifizieren kann. Diese Tokens werden mit einem geheimen Schlüssel verschlüsselt. (siehe auch (+Salt) und [AA](#authentifizierung-mit-json-web-token))
 
 # Qualitätskontrolle
 
@@ -465,5 +469,58 @@ user.addFields('mutations', {
 ```
 
 Hier wird das Benutzer Datenbank- und API-Schema definiert. Zuerst wird die Factory-Methode `dbSchemaFactory` mit den Argumenten für den Namen des Schemas, der Definition und weiteren Optionen für die Intern verwendeten Methoden aufgerufen. Das zweite Argumente ist dabei eine (+Mongoose)-Schema Definition. So wird zum Beispiel durch `username: { required: true, type: String, unique: true }` definiert, dass der Benutzername den Datentyp "String" hat, einzigartig sein soll und beim erstellen (und modifizieren) benötigt wird. Am Ende werden dann noch die (+GraphQL) Queries und Mutationen angemeldet.
+
+\clearpage
+
+## Bcrypt und JSON-Web-Token
+
+```ts
+// file: src\schema\user.ts
+
+user.addFields("mutations", {
+  createOne: user.tc.mongooseResolvers
+    .createOne()
+    .wrapResolve((next) => (rp) => {
+      rp.beforeRecordMutate = async (doc: TDocument<TUserDB>) => {
+        const {
+          args: { password },
+        } = rp;
+
+        doc.password = await bcrypt.hash(password, 10);
+
+        return doc;
+      };
+
+      return next(rp) as TResolve<TUserDB>;
+    }),
+  login: schemaComposer.createResolver<undefined, MutationUser_LoginArgs>({
+    args: { password: "String!", username: "String!" },
+    kind: "mutation",
+    name: "user_login",
+    async resolve({ args: { password, username } }) {
+      const dbUser = // [...]
+
+      const isMatch = await bcrypt.compare(password, dbUser.password);
+      if (!isMatch) throw new AuthenticationError("wrong password!");
+
+      const token = jwt.sign({ userId: dbUser._id }, config.jwtSecret, {
+        expiresIn: "1d",
+      });
+
+      return { token };
+    },
+    type: schemaComposer.createObjectTC({
+      fields: {
+        token: "String!",
+      },
+      name: "token",
+    }),
+  }),
+});
+```
+
+Bei der Mutations Definition von `createOne` wird das übergebende Passwort vor dem Speichern in die Datenbank über `bcrypt.hash(password, 10)` mit (+Bcrypt) verschlüsselt.
+
+Auch bei der Mutations Definition von `login` kommt (+Bcrypt) zum Einsatz. Diesmal wird mit `bcrypt.compare(password, dbUser.password)` verglichen, ob das übergebende Passwort mit dem in der Datenbank gespeicherten Passwort-Hash übereinstimmt. Wenn dies der Fall ist wird mit (+JWT) ein Token generiert, welcher zum Authentifizieren gegenüber der (+GraphQL)-Schnittstelle verwendet wird. Dieser ist für einen Tag gültig.
 
 \clearpage
