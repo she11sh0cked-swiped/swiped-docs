@@ -120,6 +120,12 @@ Die Endbenutzer Authentifizierung wurde mit (+Bcrypt) und JSON-Web-Token ((+JWT)
 
 In diesem Projekt wird ein Tool names "(+GraphQLCodegen)" eingesetzt. Dieses generiert anhand des (+GraphQL)-Schemas automatisiert Quellcode. Im (+BackEnd) und im (+FrontEnd) wird so die Datei `src\types\api.generated.ts` angelegt, welche das komplette API-Schema als (+TypeScript) Typisierungen enthält. Zusätzlich werden im (+FrontEnd) auch `.graphql` Dateien, welche (+GraphQL) Operationen enthalten, als (+^ReactHook) umgewandelt. (Siehe Anhang [AA](#automatisierte-codegenerierung-durch-graphql-codegen))
 
+### Deployment
+
+Das Projekt wurde mithilfe von (+Docker) und (+DockerCompose) auf meinen von mir gemieteten OVH-Server deployed. Die (+Docker)-Umgebung hat den Vorteil, dass ein Deployment immer plattformunabhängig nachstellbar ist. Die Datei, die beschreibt wie ein (+Docker)-Container erstellt werden soll, nennt sich `Dockerfile` und ist im Stammverzeichnis beider Projekte zu finden.
+
+Zusätzlich sind die (+Docker)-Images auch im (+Docker)-HUB unter `she11sh0cked/swiped-frontend` und `she11sh0cked/swiped-backend` auffindbar. Dies erleichtert den Deployment-Prozess, da bei jeden (+Git)-Push automatisiert eine neue Version der Images gebaut wird.
+
 # Qualitätskontrolle
 
 ## Statische Quellcode-Analyse
