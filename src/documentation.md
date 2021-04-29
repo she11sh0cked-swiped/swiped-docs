@@ -102,6 +102,10 @@ Das (+FrontEnd) kommuniziert mit dem (+BackEnd) über eine (+GraphQL)-Schnittste
 
 Für die Film Informationen wird eine öffentlich zugängliche API-Schnittstelle namens The Movie Database ((+TMDb)) verwendet. Statt die Anfragen direkt aus dem (+FrontEnd) an diese API zu senden, wird hier allerdings das (+BackEnd) als (+Proxy) verwendet. Das (+FrontEnd) sendet also Anfragen an das (+BackEnd), welches dann die benötigten (+TMDb) API-Anfragen macht. Die darauffolgenden Antworten werden dann an das (+FrontEnd) weiter geleitet. Dies verhindert, dass der geheime API-Schlüssel bekannt gemacht wird. Zusätzlich hat man so auch die Option die empfangenden Daten zu manipulieren oder sonstig zu verarbeiten. Im Falle dieses Projektes ist es zum Beispiel wichtig, dass die (+TMDb) API-Anfragen zwischengespeichert werden, da sonst sehr schnell die tägliche Quota aufgebraucht wird ([siehe Anhang](#ablauf-von-film-api-anfragen)).
 
+### Datenbank
+
+Als Datenbank wird (+MongoDB) im Zusammenspiel mit (+Mongoose) als Datenbankadapter verwendet. Die Datenbank-Schemas sind, zusammen mit den API-Definitionen unter `src\schema` zu finden. Dort werden auch die Relationen definiert. (siehe Anhang [AA](#uml-diagram) und [AA](#erstellen-eines-schemas))
+
 # Qualitätskontrolle
 
 ## Statische Quellcode-Analyse
@@ -355,5 +359,107 @@ sequenceDiagram
 
   B->>F: Antwort: Film mit der ID "abcdef123456"
 ```
+
+\clearpage
+
+## UML-Diagram
+
+```mermaid
+classDiagram
+  %% User classes
+
+  class User {
+    +ObjectID _id
+    +String username
+    -String password
+    +ArrayOf_Vote votes
+  }
+
+  User --> Vote
+
+  class Vote {
+    +Boolean like
+    +Media media
+  }
+
+  Vote --> Media
+
+  %% Group classes
+
+  class Group {
+    +ObjectID _id
+    +String name
+    +User owner
+    +ArrayOf_User members
+
+    +matches() ArrayOf_Match
+  }
+
+  Group --> Match
+  Group --> User
+
+  class Match {
+    +Int count
+    +Media media
+  }
+
+  Match --> Media
+
+  %% Media classes
+
+  class Media {
+    <<interface>>
+    +Int id
+    +MediaType media_type
+  }
+
+  TMDbMovie ..|> Media
+  TMDbTv ..|> Media
+  Media --> MediaType
+
+  class MediaType {
+    <<enumeration>>
+    movie
+    tv
+  }
+```
+
+\clearpage
+
+## Erstellen eines Schemas
+
+```ts
+// file: src\schema\user.ts
+
+import { User } from "~/types/api.generated";
+import { dbSchemaFactory } from "~/utils/schema";
+
+type TUserDB = User & {
+  password: string;
+};
+
+const user = dbSchemaFactory<TUserDB>(
+  "user",
+  {
+    password: { required: true, type: String },
+    username: { required: true, type: String, unique: true },
+  },
+  {
+    compose: {
+      removeFields: ["password"],
+    },
+  }
+);
+
+user.addFields("queries", {
+  findMe: // [...]
+});
+
+user.addFields('mutations', {
+  createOne: // [...]
+})
+```
+
+Hier wird das Benutzer Datenbank- und API-Schema definiert. Zuerst wird die Factory-Methode `dbSchemaFactory` mit den Argumenten für den Namen des Schemas, der Definition und weiteren Optionen für die Intern verwendeten Methoden aufgerufen. Das zweite Argumente ist dabei eine (+Mongoose)-Schema Definition. So wird zum Beispiel durch `username: { required: true, type: String, unique: true }` definiert, dass der Benutzername den Datentyp "String" hat, einzigartig sein soll und beim erstellen (und modifizieren) benötigt wird. Am Ende werden dann noch die (+GraphQL) Queries und Mutationen angemeldet.
 
 \clearpage
