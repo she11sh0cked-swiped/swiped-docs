@@ -114,11 +114,17 @@ Als Datenbank wird (+MongoDB) im Zusammenspiel mit (+Mongoose) als Datenbankadap
 
 Die Endbenutzer Authentifizierung wurde mit (+Bcrypt) und JSON-Web-Token ((+JWT)) realisiert. Das heißt, dass die Passwörter der Endbenutzer Dank (+Bcrypt)-Verschlüsselung nicht im Klartext in der Datenbank gespeichert werden. Durch (+JWT) werden dem Endbenutzer (bzw. dem (+FrontEnd)) Tokens bereitgestellt, mit denen man sich gegenüber der (+GraphQL)-Schnittstelle Authentifizieren kann. Diese Tokens werden mit einem geheimen Schlüssel verschlüsselt. (Siehe auch (+Salt) und [AA](#authentifizierung-mit-json-web-token))
 
+## Sonstiges
+
+### Codegenerierung
+
+In diesem Projekt wird ein Tool names "(+GraphQLCodegen)" eingesetzt. Dieses generiert anhand des (+GraphQL)-Schemas automatisiert Quellcode. Im (+BackEnd) und im (+FrontEnd) wird so die Datei `src\types\api.generated.ts` angelegt, welche das komplette API-Schema als (+TypeScript) Typisierungen enthält. Zusätzlich werden im (+FrontEnd) auch `.graphql` Dateien, welche (+GraphQL) Operationen enthalten, als (+^ReactHook) umgewandelt. (Siehe Anhang [AA](#automatisierte-codegenerierung-durch-graphql-codegen))
+
 # Qualitätskontrolle
 
 ## Statische Quellcode-Analyse
 
-Zur statischen Code-Analyse wurde ein auf das Projekt zugeschnittenes (+ESLint)-Regelwerk angelegt. Dieses enthält spezielle Regeln für (+React) und (+^ReactHook), (+TypeScript), Sortierreihenfolgen und vieles mehr. Dies ist sehr hilfreich, da es einfache Fehler im Quellcode durch Warnungen verhindert.
+Zur statischen Quellcode-Analyse wurde ein auf das Projekt zugeschnittenes (+ESLint)-Regelwerk angelegt. Dieses enthält spezielle Regeln für (+React) und (+^ReactHook), (+TypeScript), Sortierreihenfolgen und vieles mehr. Dies ist sehr hilfreich, da es einfache Fehler im Quellcode durch Warnungen verhindert.
 
 Die Regelwerke kann man sich aus dem Stammverzeichnis der Projekte unter der Datei `.eslintrc.js` entnehmen.
 
@@ -157,8 +163,6 @@ Projektkosten: Durchführungszeit von 70 Stunden x 10€ Kosten pro Stunde, also
 
 **Hinweis:** Die hier zu findenden Code-Beispiele wurden gekürzt, damit die angesprochenen Punkte klarer erklärt werden. Funktionsfähige Versionen dieser Dateien kann man in jeden Beispiel unter `// file: path/to/file` finden.
 
-\clearpage
-
 ## Front-End Ordnerstruktur
 
 **Initiale Create-React-App Ordnerstruktur:**
@@ -180,7 +184,7 @@ Projektkosten: Durchführungszeit von 70 Stunden x 10€ Kosten pro Stunde, also
 .3 components/\DTcomment{Globale \gls{React}-Komponenten, die sich in jeden Container verwenden lassen (z.B.: Button Komponente)}.
 .3 containers/\DTcomment{Hauptseiten die sich aus globalen und Container spezifischen Komponenten zusammensetzen (z.B.: Login Container)}.
 .3 store/\DTcomment{\gls{MobX} Stores für Daten die Global in der Anwendung erreichbar sein sollen (z.B.: Name der aktuellen Seite)}.
-.3 types/\DTcomment{Globale typisierungs-Dateien (z.B.: API typisierungen)}.
+.3 types/\DTcomment{Globale typisierungs-Dateien (z.B.: API Typisierungen)}.
 .3 utils/\DTcomment{Nützliche und wiederverwendbare Code-Snippets (z.B.: uppercaseFirstLetter.ts)}.
 }
 
@@ -345,8 +349,6 @@ Der spread von `{...field}` in der `TextField` Komponente meldet dann die benöt
 
 Letztendlich wird mit `handleSubmit` noch definiert, was bei einer erfolgreichen Eingabe ausgelöst werden soll. In diesen Fall wird `createGroup` mit den eben eingegebenen Werten aufgerufen und somit eine neue Gruppe erstellt.
 
-\clearpage
-
 ## Ablauf von TMDb API-Anfragen
 
 ```mermaid
@@ -468,7 +470,7 @@ user.addFields('mutations', {
 })
 ```
 
-Hier wird das Benutzer Datenbank- und API-Schema definiert. Zuerst wird die Factory-Methode `dbSchemaFactory` mit den Argumenten für den Namen des Schemas, der Definition und weiteren Optionen für die Intern verwendeten Methoden aufgerufen. Das zweite Argument ist dabei eine (+Mongoose)-Schema Definition. So wird zum Beispiel durch `username: { required: true, type: String, unique: true }` definiert, dass der Benutzername den Datentyp "String" hat, einzigartig sein soll und beim erstellen (und modifizieren) benötigt wird. Am Ende werden dann noch die (+GraphQL) Queries und Mutationen angemeldet.
+Hier wird das Benutzer Datenbank- und API-Schema definiert. Zuerst wird die Factory-Methode `dbSchemaFactory` mit den Argumenten für den Namen des Schemas, der Definition und weiteren Optionen für die Intern verwendeten Methoden aufgerufen. Das zweite Argument ist dabei eine (+Mongoose)-Schema Definition. So wird zum Beispiel durch `username: { required: true, type: String, unique: true }` definiert, dass der Benutzername den Datentyp "String" hat, einzigartig sein soll und beim erstellen (und modifizieren) benötigt wird. Am Ende werden dann noch die (+GraphQL) Operationen angemeldet.
 
 \clearpage
 
@@ -522,5 +524,45 @@ user.addFields("mutations", {
 Bei der Mutations-Definition von `createOne` wird das übergebende Passwort vor dem Speichern in die Datenbank über `bcrypt.hash(password, 10)` mit (+Bcrypt) verschlüsselt.
 
 Auch bei der Mutations-Definition von `login` kommt (+Bcrypt) zum Einsatz. Diesmal wird mit `bcrypt.compare(password, dbUser.password)` verglichen, ob das übergebende Passwort mit dem in der Datenbank gespeicherten Passwort-Hash übereinstimmt. Wenn dies der Fall ist, wird mit (+JWT) ein Token generiert, welcher zum Authentifizieren gegenüber der (+GraphQL)-Schnittstelle verwendet wird. Dieser ist für einen Tag gültig.
+
+## Automatisierte Codegenerierung durch GraphQL-Codegen
+
+**Eingabe:**
+
+```graphql
+# file: src\containers\groupEdit\GroupEdit.graphql
+
+query group($id: MongoID!) {
+  group_findById(_id: $id) {
+    _id
+    name
+  }
+}
+```
+
+**Ausgabe:** (**Hinweis:** Sehr stark gekürzt!)
+
+```ts
+// file: src\containers\groupEdit\GroupEdit.generated.ts
+
+export type GroupQueryVariables = Types.Exact<{
+  id: Types.Scalars["MongoID"];
+}>;
+
+export type GroupQuery = { __typename?: "Query" } & {
+  group_findById?: Types.Maybe<
+    { __typename?: "group" } & Pick<Types.Group, "_id" | "name">
+  >;
+};
+
+export function useGroupQuery(
+  baseOptions: Apollo.QueryHookOptions<GroupQuery, GroupQueryVariables>
+) {
+  // [...]
+}
+export type GroupQueryHookResult = ReturnType<typeof useGroupQuery>;
+```
+
+Wie man hier sieht hat (+GraphQLCodegen) die Operation `group_findById` in der Input-Datei `GroupEdit.graphql` eingelesen und mit den gewonnenen Informationen die Output-Datei `GroupEdit.generated.ts` generiert. In dieser Datei finden sich diverse Typen-Definitionen, sowie (+^ReactHook) die dann im Quellcode (hier `src\containers\groupEdit\GroupEdit.tsx`) verwendet werden können.
 
 \clearpage
