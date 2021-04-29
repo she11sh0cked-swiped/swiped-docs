@@ -70,31 +70,27 @@ Als Entwicklungsprozess wurde die agile Softwareentwicklung verwendet, sodass w�
 
 ## Front-End
 
-### Verwendete Tools
+### Initialisierung
 
-#### Front-End Framework
+Das Projekt wurde mit Hilfe von (+CreateReactApp) über den Befehl `yarn create react-app swiped-frontend --template typescript` initialisiert. Dies erstellt eine Basisumgebung für eine neue (+React) Einzelseitenanwendung mit (+TypeScript) als Programmiersprache, (+Webpack) als Bundler und out-of-the-box Support für viele Entwickler-Features wie zum Beispiel dem (+HotReloading). Die erstellte Ordnerstruktur ist zunächst etwas "Unordentlich", weshalb sie zu einer Sinnvolleren Ordnerstruktur umgeändert wurde ([siehe Anhang](#front-end-ordnerstruktur)). Als nächstes wurden Konfigurationen für weitere Entwickler-Tools wie zum Beispiel (+ESLint) und (+Prettier) angelegt. Diese helfen dabei den Quellcode einheitlich zu halten und nehmen einiges an Arbeit ab.
+
+### Front-End Framework
 
 Als (+FrontEnd) Framework wurde (+React) gewählt. (+React) wurde mit dem Fokus erstellt, für Webanwendungen zu erstellen. Eine (+React)-Komponente ist ein View, der von der Anwendung abgekapselt ist. Damit lassen sich zum Beispiel Buttons, Text-Elemente oder Beschriftungen isoliert und wiederverwendbar entwickeln. Zudem ist die spürbare Geschwindigkeit der Anwendung hoch, da (+React) nur DOM-Manipulationen an ausführt dessen sichtbare Daten sich ändern.
 
 (+React) ist (+OpenSource) und wird von Facebook und einer Community einzelner Entwickler und Unternehmen gepflegt. Dadurch existiert für die Bibliothek eine sehr solide Dokumentation. Aber auch für obskurere Probleme findet man durch eine immer größer werdende Community an Entwicklern lösungen. Da (+React) unter der (+MITLizenz) steht, kann es kostenlos verwendet werden.
 
-#### Styling
+### Styling
 
 Ich habe mich schon früh dazu entschieden die (+React)-Komponenten Bibliothek "(+MaterialUI)" mit in das Projekt einzubinden. (+MaterialUI), welches Google's Design-Sprache (+MaterialDesign) als (+React)-Komponenten Implementiert, erlaubt es mit einer einheitlichen Kollektion von Basis-Komponenten zu starten. Auch das Überschreiben der Standartwerte ist durch ein Theming-Konzept sehr leicht ([siehe Anhang](#material-ui-theming-konzept)). Styling wird bei der Verwendung von (+MaterialUI) nicht in CSS, sondern dank (+JSS) in JavaScript geschrieben. Dies ermöglicht es CSS dynamisch aus dem Quellcode zu manipulieren ([siehe Anhang](#styling-mit-material-ui)).
 
-#### Animationen
+### Animationen
 
 Für die Animationen der Karten wurde sich entschieden (+ReactSpring) im Zusammenspiel mit (+ReactUseGesture) zu verwenden. Dies stellt, wie auch (+MaterialUI), einen Quellcode nahen Ansatz für CSS manipulationen dar ([siehe Anhang](#react-spring--react-use-gesture-animations-beispiel)).
 
-#### Formulare
+### Formulare
 
 Die Formulare der Login-, Registrier-, sowie der Gruppen-Editier Seiten benutzen ein Tool names "(+ReactHookForm)". Mit diesem Tool kann man leicht Formulare Implementierung, ohne das man auf Daten-Felder, Validatoren und andere Sachen um die man sich normalerweise selber kümmern müsste achten muss. Hierzu verwendet man einfach Wrapper-Komponenten, die sich dann Intern selbständig einen State zusammenstellen ([siehe Anhang](#react-hook-form-formular-beispiel)).
-
-### Details
-
-#### Initialisierung
-
-Das Projekt wurde mit Hilfe von (+CreateReactApp) über den Befehl `yarn create react-app swiped-frontend --template typescript` initialisiert. Dies erstellt eine Basisumgebung für eine neue (+React) Einzelseitenanwendung mit (+TypeScript) als Programmiersprache, (+Webpack) als Bundler und out-of-the-box Support für viele Entwickler-Features wie zum Beispiel dem (+HotReloading). Die erstellte Ordnerstruktur ist zunächst etwas "Unordentlich", weshalb sie zu einer Sinnvolleren Ordnerstruktur umgeändert wurde ([siehe Anhang](#front-end-ordnerstruktur)). Als nächstes wurden Konfigurationen für weitere Entwickler-Tools wie zum Beispiel (+ESLint) und (+Prettier) angelegt. Diese helfen dabei den Quellcode einheitlich zu halten und nehmen einiges an Arbeit ab.
 
 # Qualitätskontrolle
 
@@ -138,6 +134,33 @@ Projektkosten: Durchführungszeit von 70 Stunden x 10€ Kosten pro Stunde, also
 # Anhang
 
 **Hinweis:** Die hier zu findenden Code-Beispiele wurden gekürzt, damit die angesprochenden Punkte klarer erklärt werden. Funktionsfähige Versionen dieser Dateien kann man in jeden Beispiel unter `// file: path/to/file` finden.
+
+\clearpage
+
+## Front-End Ordnerstruktur
+
+**Initiale Create-React-App Ordnerstruktur:**
+
+\dirtree{%
+.1 swiped-frontend/.
+.2 public/\DTcomment{Alle statischen Dateien (z.B.: index.html, favicon.ico)}.
+.2 src/\DTcomment{Alle Quellcode Dateien (z.B.: index.js)}.
+}
+
+**Meine Ordnerstruktur:**
+
+\dirtree{%
+.1 swiped-frontend/.
+.2 public/\DTcomment{Alle statischen Dateien (z.B.: index.html, favicon.ico)}.
+.2 src/.
+.3 api/\DTcomment{Quellcode der mit dem Verbindungs-Code des \gls{BackEnd} zu tun hat (z.B.: \gls{Apollo}-Client initialisierung)}.
+.3 app/\DTcomment{Einstiegspunkt des \gls{React}-Teils der Anwendung}.
+.3 components/\DTcomment{Globale \gls{React}-Komponenten, die sich in jeden Container verwenden lassen (z.B.: Button Komponente)}.
+.3 containers/\DTcomment{Hauptseiten die sich aus globalen und Container spezifischen Komponenten zusammensetzen (z.B.: Login Container)}.
+.3 store/\DTcomment{\gls{MobX} Stores für Daten die Global in der Anwendung erreichbar sein sollen (z.B.: Name der aktuellen Seite)}.
+.3 types/\DTcomment{Globale typisierungs-Dateien (z.B.: API typisierungen)}.
+.3 utils/\DTcomment{Nützliche und wiederverwendbare Code-Snippets (z.B.: uppercaseFirstLetter.ts)}.
+}
 
 \clearpage
 
@@ -299,32 +322,5 @@ Hier wird ein Formular zum Erstellen einer neuen Gruppe Implementiert. Die Typen
 Der spread von `{...field}` in der `TextField` Komponente meldet dann die benötigten (+React) Properties an welche von (+ReactHookForm) benötigt werden, um den eingegebenen Wert auszulesen, zu verarbeitet und darzustellen.
 
 Letztendlich wird mit `handleSubmit` noch definiert was bei einer Erfolgreichen Eingabe ausgelöst werden soll. In diesen Fall wird `createGroup` mit den eben eingegebenen Werten aufgerufen und somit eine neue Gruppe erstellt.
-
-\clearpage
-
-## Front-End Ordnerstruktur
-
-**Initiale Create-React-App Ordnerstruktur:**
-
-\dirtree{%
-.1 swiped-frontend/.
-.2 public/\DTcomment{Alle statischen Dateien (z.B.: index.html, favicon.ico)}.
-.2 src/\DTcomment{Alle Quellcode Dateien (z.B.: index.js)}.
-}
-
-**Meine Ordnerstruktur:**
-
-\dirtree{%
-.1 swiped-frontend/.
-.2 public/\DTcomment{Alle statischen Dateien (z.B.: index.html, favicon.ico)}.
-.2 src/.
-.3 api/\DTcomment{Quellcode der mit dem Verbindungs-Code des \gls{BackEnd} zu tun hat (z.B.: \gls{Apollo}-Client initialisierung)}.
-.3 app/\DTcomment{Einstiegspunkt des \gls{React}-Teils der Anwendung}.
-.3 components/\DTcomment{Globale \gls{React}-Komponenten, die sich in jeden Container verwenden lassen (z.B.: Button Komponente)}.
-.3 containers/\DTcomment{Hauptseiten die sich aus globalen und Container spezifischen Komponenten zusammensetzen (z.B.: Login Container)}.
-.3 store/\DTcomment{\gls{MobX} Stores für Daten die Global in der Anwendung erreichbar sein sollen (z.B.: Name der aktuellen Seite)}.
-.3 types/\DTcomment{Globale typisierungs-Dateien (z.B.: API typisierungen)}.
-.3 utils/\DTcomment{Nützliche und wiederverwendbare Code-Snippets (z.B.: uppercaseFirstLetter.ts)}.
-}
 
 \clearpage
