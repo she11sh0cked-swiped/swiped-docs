@@ -24,25 +24,25 @@ header-includes:
 
 ## Projektumfeld
 
-Das Projekt wurde von mir im Rahmen der betrieblichen Projektarbeit in meinem Ausbildungsbetrieb der inSynergie GmbH durchgeführt. Die inSynergie GmbH, gegründet im Jahr 2000, ist ein inhabergeführtes, mittelständisches Unternehmen mit zur Zeit 45 fest angestellten Mitarbeitern. Im Rahmen der Projektarbeit planen und realisieren wir ganzheitliche Lösungen in den Bereichen Medientechnik und Exponatebau. Ein zweiter Schwerpunkt ist die Entwicklung und der Vertrieb von multimedialen Steuerungsprodukten und Ihrer Software. Unser Produktportfolio beinhaltet Eigenentwicklungen aus den Bereichen: Steuerungs und Touchpanels, Audiosysteme, Videosysteme und Steuerungssysteme.
+Das Projekt wurde von mir im Rahmen der betrieblichen Projektarbeit in meinem Ausbildungsbetrieb der inSynergie GmbH durchgeführt. Die inSynergie GmbH, gegründet im Jahr 2000, ist ein inhabergeführtes, mittelständisches Unternehmen mit zur Zeit 45 fest angestellten Mitarbeitern. Im Rahmen der Projektarbeit planen und realisieren wir ganzheitliche Lösungen in den Bereichen Medientechnik und Exponatebau. Ein zweiter Schwerpunkt ist die Entwicklung und der Vertrieb von multimedialen Steuerungsprodukten und Ihrer Software. Unser Produktportfolio beinhaltet Eigenentwicklungen aus den Bereichen: Steuerungs- und Touchpanels, Audiosysteme, Videosysteme und Steuerungssysteme.
 
 ## Projektziel
 
-Ein Endbenutzer kann die Anwendung in einem Webbrowser seiner Wahl aufrufen. Beim ersten aufruf der Anwendung wird der Endbenutzer durch eine Login Seite darauf hingewiesen einen Account zu erstellen. Nachdem er sich angemeldet hat, wird er auf die Hauptseite umgeleitet.
+Ein Endbenutzer kann die Anwendung in einem Webbrowser seiner Wahl aufrufen. Beim ersten Aufruf der Anwendung wird der Endbenutzer durch eine Login-Seite darauf hingewiesen einen Account zu erstellen. Nachdem er sich angemeldet hat, wird er auf die Hauptseite umgeleitet.
 
-Dort findet er ein Kartendeck welches aus momentan populären Filmen besteht. Diese Karten kann er mit seiner Maus oder über Touch-Input bewegen. Unter den Karten liegen außerdem zwei Button-Inputs. Der linke Button ist ein rotes Kreuz und der rechte Button ein grünes Herz. Hier wird durch die Design-Entscheidung der Farben und Symbole darauf hingewiesen, dass man die Filme mit eben diesen Buttons negativ (Rotes Kreuz) oder positiv (Grünes Herz) bewerten kann. Zusätzlich kann man die Bewertung auch ausführen, indem man die Karte in die jeweilige Richtung schleudert (links: negativ; rechts: positiv). Nach 10 bewerteten Karten ist das Deck leer. Das Ergebnis wird dann aus dem (+FrontEnd) ((+React)) an das (+BackEnd) ((+NodeJS)) weitergeleitet und in einer (+MongoDB) hinterlegt. Basierend auf diesen Bewertungen werden dann die nächsten Filme gewählt, die das Kartendeck darstellen soll.
+Dort findet er ein Kartendeck, welches aus momentan populären Filmen besteht. Diese Karten kann er mit seiner Maus oder über Touch-Input bewegen. Unter den Karten liegen außerdem zwei Button-Inputs. Der linke Button ist ein rotes Kreuz und der rechte Button ein grünes Herz. Hier wird durch die Design-Entscheidung der Farben und Symbole darauf hingewiesen, dass man die Filme mit eben diesen Buttons negativ (Rotes Kreuz) oder positiv (Grünes Herz) bewerten kann. Zusätzlich kann man die Bewertung auch ausführen, indem man die Karte in die jeweilige Richtung schleudert (links: negativ; rechts: positiv). Nach 10 bewerteten Karten ist das Deck leer. Das Ergebnis wird dann aus dem (+FrontEnd) ((+React)) an das (+BackEnd) ((+NodeJS)) weitergeleitet und in einer (+MongoDB) hinterlegt. Basierend auf diesen Bewertungen werden dann die nächsten Filme gewählt, die das Kartendeck darstellen soll.
 
-Über eine Navigationsleiste gelangt der Endbenutzer zur Gruppenübersichts-Seite. Auf dieser findet er alle Gruppen denen er beigetreten ist und hat die möglichkeit neue Gruppen zu erstellen. Wenn er auf eine Gruppe klick wird er zu der Detail-Seite dieser umgeleitet. Hier findet er eine Liste der von ihm und anderen Gruppenmitgliedern positiv bewerteten Filmen. Je mehr positive Bewertungen ein Film erhält, desto mehr Sterne erhält dieser und desto höher wird er in der Liste angezeigt. Mit 5 Sternen erreicht ein Film die höchste Bewertung, welche durch eine Farbänderung der Herzen gekennzeichnet wird.
+Über eine Navigationsleiste gelangt der Endbenutzer zur Gruppenübersichts-Seite. Auf dieser findet er alle Gruppen, denen er beigetreten ist und hat die Möglichkeit neue Gruppen zu erstellen. Wenn er auf eine Gruppe klick, wird er zu der Detail-Seite dieser umgeleitet. Hier findet er eine Liste der von ihm und anderen Gruppenmitgliedern positiv bewerteten Filmen. Je mehr positive Bewertungen ein Film erhält, desto mehr Sterne erhält dieser und desto höher wird er in der Liste angezeigt. Mit 5 Sternen erreicht ein Film die höchste Bewertung, welche durch eine Farbänderung der Herzen gekennzeichnet wird.
 
 ## Projektbegründung
 
-Der Zweck dieser Anwendung ist es ein realistisches Projekt-Ziel zu haben in den man neue Technologien testen und bereits eingesetzte Technologien festigen und überdenken kann. Diese erlangten Kenntnisse kommen dann möglicherweise auch in einer Vielzahl an zukünftigen Projekten zum Einsatz. Deshalb dient dieses Projekt, als auch diese Dokumentation als eine Art Pilotprojekt.
+Der Zweck dieser Anwendung ist es, ein realistisches Projekt-Ziel zu haben, in den man neue Technologien testen und bereits eingesetzte Technologien festigen und überdenken kann. Diese erlangten Kenntnisse kommen dann möglicherweise auch in einer Vielzahl an zukünftigen Projekten zum Einsatz. Deshalb dient dieses Projekt, als auch diese Dokumentation als eine Art Pilotprojekt.
 
 ## Projektschnittstellen
 
 Der Endbenutzer kann die Webanwendung in jedem aktuellen Browser und auf einer Vielzahl von Geräten wie PCs, Notebooks über Tablets bis hin zu Smartphone aufrufen.
 
-Das (+FrontEnd) der Webanwendung läuft auf einem (+NginX)-Server und das (+BackEnd) läuft auf einem (+NodeJS)-Server mit (+Express) und (+MongoDB).
+Das (+FrontEnd) der Webanwendung läuft auf einem (+NginX)-Server und das (+BackEnd) auf einem (+NodeJS)-Server mit (+Express) und (+MongoDB).
 
 Genehmigt wurde das Projekt von der Leitung der Entwicklungsabteilung. Dieser wurde auch der aktuelle Stand zweimal wöchentlich präsentiert, sowie über eine zu jeden Tag aktualisierte Test-Installation zugänglich gemacht.
 
@@ -60,7 +60,7 @@ Das Projekt wurde innerhalb von 70 Stunden durchgeführt.
 
 ## Abweichungen vom Projektantrag
 
-Aspekte der Implementierung wurden aus zeitlichen Gründen ausgelassen. Dabei wurde darauf geachtet, dass keine Core-Konzepte entfallen. Zu den nicht Implementierten Seiten zählen die "Film-Details", "Benutzerprofil", sowie die "Neuer Benutzer" Seite. Die letztere Seite wurde ausgelassen, da ein ähnliches Feature bereits in der "Swiping-Game" Seite, durch das Empfehlen von populärer Filmen existierte.
+Aspekte der Implementierung wurden aus zeitlichen Gründen ausgelassen. Dabei wurde darauf geachtet, dass keine Core-Konzepte entfallen. Zu den nicht implementierten Seiten zählen die "Film-Details", "Benutzerprofil", sowie die "Neuer Benutzer" Seite. Die letztere Seite wurde ausgelassen, da ein ähnliches Feature bereits in der "Swiping-Game" Seite durch das Empfehlen von populärer Filmen existierte.
 
 ## Entwicklungsprozess
 
@@ -72,59 +72,59 @@ Als Entwicklungsprozess wurde die agile Softwareentwicklung verwendet, sodass w�
 
 ### Initialisierung
 
-Das Projekt wurde mit Hilfe von (+CreateReactApp) über den Befehl `yarn create react-app swiped-frontend --template typescript` initialisiert. Dies erstellt eine Basisumgebung für eine neue (+React) Einzelseitenanwendung mit (+TypeScript) als Programmiersprache, (+Webpack) als Bundler und out-of-the-box Support für viele Entwickler-Features wie zum Beispiel dem (+HotReloading). Die erstellte Ordnerstruktur ist zunächst etwas "Unordentlich", weshalb sie zu einer Sinnvolleren Ordnerstruktur umgeändert wurde (siehe Anhang [AA](#front-end-ordnerstruktur)). Als nächstes wurden Konfigurationen für weitere Entwickler-Tools wie zum Beispiel (+ESLint) und (+Prettier) angelegt. Diese helfen dabei den Quellcode einheitlich zu halten und nehmen einiges an Arbeit ab.
+Das Projekt wurde mit Hilfe von (+CreateReactApp) über den Befehl `yarn create react-app swiped-frontend --template typescript` initialisiert. Dies erstellt eine Basisumgebung für eine neue (+React) Einzelseitenanwendung mit (+TypeScript) als Programmiersprache, (+Webpack) als Bundler und out-of-the-box Support für viele Entwickler-Features wie zum Beispiel dem (+HotReloading). Die erstellte Ordnerstruktur ist zunächst etwas "Unordentlich", weshalb sie zu einer sinnvolleren Ordnerstruktur umgeändert wurde (Siehe Anhang [AA](#front-end-ordnerstruktur)). Als Nächstes wurden Konfigurationen für weitere Entwickler-Tools wie zum Beispiel (+ESLint) und (+Prettier) angelegt. Diese helfen dabei den Quellcode einheitlich zu halten und nehmen einiges an Arbeit ab.
 
 ### Front-End Framework
 
-Als (+FrontEnd) Framework wurde (+React) gewählt. (+React) wurde mit dem Fokus erstellt, für Webanwendungen zu erstellen. Eine (+React)-Komponente ist ein View, der von der Anwendung abgekapselt ist. Damit lassen sich zum Beispiel Buttons, Text-Elemente oder Beschriftungen isoliert und wiederverwendbar entwickeln. Zudem ist die spürbare Geschwindigkeit der Anwendung hoch, da (+React) nur DOM-Manipulationen an ausführt dessen sichtbare Daten sich ändern.
+Als (+FrontEnd) Framework wurde (+React) gewählt. (+React) wurde mit dem Fokus erstellt, für Webanwendungen zu erstellen. Eine (+React)-Komponente ist ein View, der von der Anwendung abgekapselt ist. Damit lassen sich zum Beispiel Buttons, Text-Elemente oder Beschriftungen isoliert und wiederverwendbar entwickeln. Zudem ist die spürbare Geschwindigkeit der Anwendung hoch, da (+React) nur DOM-Manipulationen an Komponenten ausführt dessen sichtbare Daten sich ändern.
 
-(+React) ist (+OpenSource) und wird von Facebook und einer Community einzelner Entwickler und Unternehmen gepflegt. Dadurch existiert für die Bibliothek eine sehr solide Dokumentation. Aber auch für obskurere Probleme findet man durch eine immer größer werdende Community an Entwicklern lösungen. Da (+React) unter der (+MITLizenz) steht, kann es kostenlos verwendet werden.
+(+React) ist (+OpenSource) und wird von Facebook und einer Community einzelner Entwickler und Unternehmen gepflegt. Dadurch existiert für die Bibliothek eine sehr solide Dokumentation. Aber auch für obskurere Probleme findet man durch eine immer größer werdende Community an Entwicklern Lösungen. Da (+React) unter der (+MITLizenz) steht, kann es kostenlos verwendet werden.
 
 ### Styling
 
-Ich habe mich schon früh dazu entschieden die (+React)-Komponenten Bibliothek "(+MaterialUI)" mit in das Projekt einzubinden. (+MaterialUI), welches Google's Design-Sprache (+MaterialDesign) als (+React)-Komponenten Implementiert, erlaubt es mit einer einheitlichen Kollektion von Basis-Komponenten zu starten. Auch das Überschreiben der Standartwerte ist durch ein Theming-Konzept sehr leicht (siehe Anhang [AA](#material-ui-theming-konzept)). Styling wird bei der Verwendung von (+MaterialUI) nicht in CSS, sondern dank (+JSS) in JavaScript geschrieben. Dies ermöglicht es CSS dynamisch aus dem Quellcode zu manipulieren (siehe Anhang [AA](#styling-mit-material-ui)).
+Ich habe mich schon früh dazu entschieden die (+React)-Komponenten Bibliothek "(+MaterialUI)" mit in das Projekt einzubinden. (+MaterialUI), welches Google's Design-Sprache (+MaterialDesign) als (+React)-Komponenten implementiert, erlaubt es mit einer einheitlichen Kollektion von Basis-Komponenten zu starten. Auch das Überschreiben der Standardwerte ist durch ein Theming-Konzept sehr leicht (Siehe Anhang [AA](#material-ui-theming-konzept)). Styling wird bei der Verwendung von (+MaterialUI) nicht in CSS, sondern dank (+JSS) in JavaScript geschrieben. Dies ermöglicht es CSS dynamisch aus dem Quellcode zu manipulieren (Siehe Anhang [AA](#styling-mit-material-ui)).
 
 ### Animationen
 
-Für die Animationen der Karten wurde sich entschieden (+ReactSpring) im Zusammenspiel mit (+ReactUseGesture) zu verwenden. Dies stellt, wie auch (+MaterialUI), einen Quellcode nahen Ansatz für CSS manipulationen dar (siehe Anhang [AA](#react-spring--react-use-gesture-animations-beispiel)).
+Für die Animationen der Karten wurde sich entschieden (+ReactSpring) im Zusammenspiel mit (+ReactUseGesture) zu verwenden. Dies stellt, wie auch (+MaterialUI), einen Quellcode nahen Ansatz für CSS Manipulationen dar (Siehe Anhang [AA](#react-spring--react-use-gesture-animations-beispiel)).
 
 ### Formulare
 
-Die Formulare der Login-, Registrier-, sowie der Gruppen-Editier Seiten benutzen ein Tool names "(+ReactHookForm)". Mit diesem Tool kann man leicht Formulare Implementierung, ohne das man auf Daten-Felder, Validatoren und andere Sachen um die man sich normalerweise selber kümmern müsste achten muss. Hierzu verwendet man einfach Wrapper-Komponenten, die sich dann Intern selbständig einen State zusammenstellen (siehe Anhang [AA](#react-hook-form-formular-beispiel)).
+Die Formulare der Login-, Registrier-, sowie der Gruppen-Editier Seiten benutzen ein Tool names "(+ReactHookForm)". Mit diesem Tool kann man leicht Formulare implementieren, ohne das man auf Daten-Felder, Validatoren und andere Sachen, um die man sich normalerweise selber kümmern müsste, achten muss. Hierzu verwendet man einfach Wrapper-Komponenten, die sich dann Intern selbstständig einen State zusammenstellen (Siehe Anhang [AA](#react-hook-form-formular-beispiel)).
 
 ### Back-End Kommunikation
 
-Das (+FrontEnd) kommuniziert mit dem (+BackEnd) über eine (+GraphQL)-Schnittstelle. Genauer gesagt wird auf beiden Seiten der Anwendung eine (+Apollo)-Platform eingerichtet und verwendet. Das benutzen von (+Apollo) hat mehrere Vorteile, wie z.B.: 100% kompatibilität, da im (+BackEnd) der (+Apollo)-Server und im (+FrontEnd) der (+Apollo)-Client verwendet wird, und einfaches Eintrichten mit vielen Konfigurations möglichkeiten
+Das (+FrontEnd) kommuniziert mit dem (+BackEnd) über eine (+GraphQL)-Schnittstelle. Genauer gesagt wird auf beiden Seiten der Anwendung eine (+Apollo)-Plattform eingerichtet und verwendet. Das benutzen von (+Apollo) hat mehrere Vorteile, wie z.B.: 100% Kompatibilität, da im (+BackEnd) der (+Apollo)-Server und im (+FrontEnd) der (+Apollo)-Client verwendet wird, und einfaches Einrichten mit vielen Konfigurationsmöglichkeiten.
 
 ## Back-End
 
 ### Initialisierung
 
-Es wurde sich dafür entschieden auch im (+BackEnd) (+Webpack) einzusetzen. Auf diese Weise wird der (+TypeScript) Quellcode nach dem Transcompilen (siehe (+Transpiler)) in eine durch (+NodeJS) ausführbare Bundle-Datei gepackt. Wie im (+FrontEnd) wurden auch hier weitere Konfigurationen (z.B.: (+ESLint) und (+Prettier)) angelegt und auf das Projekt angepasst.
+Es wurde sich dafür entschieden, auch im (+BackEnd) (+Webpack) einzusetzen. Auf diese Weise wird der (+TypeScript) Quellcode nach dem Transcompilen (Siehe (+Transpiler)) in eine durch (+NodeJS) ausführbare Bundle-Datei gepackt. Wie im (+FrontEnd) wurden auch hier weitere Konfigurationen (z.B.: (+ESLint) und (+Prettier)) angelegt und auf das Projekt angepasst.
 
 ### Datenquelle
 
-Für die Film Informationen wird eine öffentlich zugängliche API-Schnittstelle namens The Movie Database ((+TMDb)) verwendet. Statt die Anfragen direkt aus dem (+FrontEnd) an diese API zu senden, wird hier allerdings das (+BackEnd) als (+Proxy) verwendet. Das (+FrontEnd) sendet also Anfragen an das (+BackEnd), welches dann die benötigten (+TMDb) API-Anfragen macht. Die darauffolgenden Antworten werden dann an das (+FrontEnd) weiter geleitet. Dies verhindert, dass der geheime API-Schlüssel bekannt gemacht wird. Zusätzlich hat man so auch die Option die empfangenden Daten zu manipulieren oder sonstig zu verarbeiten. Im Falle dieses Projektes ist es zum Beispiel wichtig, dass die (+TMDb) API-Anfragen zwischengespeichert werden, da sonst sehr schnell die tägliche Quota aufgebraucht wird (siehe Anhang [AA](#ablauf-von-film-api-anfragen)).
+Für die Filminformationen wird eine öffentlich zugängliche API-Schnittstelle namens The Movie Database ((+TMDb)) verwendet. Statt die Anfragen direkt aus dem (+FrontEnd) an diese API zu senden, wird hier allerdings das (+BackEnd) als (+Proxy) verwendet. Das (+FrontEnd) sendet also Anfragen an das (+BackEnd), welches dann die benötigten (+TMDb) API-Anfragen macht. Die darauffolgenden Antworten werden dann an das (+FrontEnd) weiter geleitet. Dies verhindert, dass der geheime API-Schlüssel bekannt gemacht wird. Zusätzlich hat man so auch die Option, die empfangenden Daten zu manipulieren oder sonstig zu verarbeiten. Im Falle dieses Projektes ist es zum Beispiel wichtig, dass die (+TMDb) API-Anfragen zwischengespeichert werden, da sonst sehr schnell die tägliche Quota aufgebraucht wird (Siehe Anhang [AA](#ablauf-von-film-api-anfragen)).
 
 ### Datenbank
 
-Als Datenbank wird (+MongoDB) im Zusammenspiel mit (+Mongoose) als Datenbankadapter verwendet. Die Datenbank-Schemas sind, zusammen mit den API-Definitionen unter `src\schema` zu finden. Dort werden auch die Relationen definiert. (siehe Anhang [AA](#uml-diagram) und [AA](#erstellen-eines-schemas))
+Als Datenbank wird (+MongoDB) im Zusammenspiel mit (+Mongoose) als Datenbankadapter verwendet. Die Datenbank-Schemas sind zusammen mit den API-Definitionen unter `src\schema` zu finden. Dort werden auch die Relationen definiert. (Siehe Anhang [AA](#uml-diagram) und [AA](#erstellen-eines-schemas))
 
 ### Authentifizierung
 
-Die Endbenutzer Authentifizierung wurde mit (+Bcrypt) und JSON-Web-Token ((+JWT)) realisiert. Das heißt, dass die Passwörter der Endbenutzer Dank (+Bcrypt)-Verschlüsselung nicht im Klartext in der Datenbank gespeichert werden. Durch (+JWT) werden dem Endbenutzer (bzw. dem (+FrontEnd)) Tokens bereitgestellt, mit denen man sich gegenüber der (+GraphQL)-Schnittstelle Authentifizieren kann. Diese Tokens werden mit einem geheimen Schlüssel verschlüsselt. (siehe auch (+Salt) und [AA](#authentifizierung-mit-json-web-token))
+Die Endbenutzer Authentifizierung wurde mit (+Bcrypt) und JSON-Web-Token ((+JWT)) realisiert. Das heißt, dass die Passwörter der Endbenutzer Dank (+Bcrypt)-Verschlüsselung nicht im Klartext in der Datenbank gespeichert werden. Durch (+JWT) werden dem Endbenutzer (bzw. dem (+FrontEnd)) Tokens bereitgestellt, mit denen man sich gegenüber der (+GraphQL)-Schnittstelle Authentifizieren kann. Diese Tokens werden mit einem geheimen Schlüssel verschlüsselt. (Siehe auch (+Salt) und [AA](#authentifizierung-mit-json-web-token))
 
 # Qualitätskontrolle
 
 ## Statische Quellcode-Analyse
 
-Zur statischen Code-Analyse wurde ein auf das Projekt zugeschnittenes (+ESLint)-Regelwerk angelegt. Dieses enthält spezielle Regeln für (+React) und (+^ReactHook), (+TypeScript), Sortier-Reihenfolgen und vieles mehr. Dies ist sehr hilfreich, da es einfache Fehler im Quellcode durch Warnungen verhindert.
+Zur statischen Code-Analyse wurde ein auf das Projekt zugeschnittenes (+ESLint)-Regelwerk angelegt. Dieses enthält spezielle Regeln für (+React) und (+^ReactHook), (+TypeScript), Sortierreihenfolgen und vieles mehr. Dies ist sehr hilfreich, da es einfache Fehler im Quellcode durch Warnungen verhindert.
 
 Die Regelwerke kann man sich aus dem Stammverzeichnis der Projekte unter der Datei `.eslintrc.js` entnehmen.
 
 ## Quellcode formatierung
 
-Damit der Quellcode einheitlich bleibt wurde das Code-Formatier Tool "(+Prettier)" eingesetzt. Auch hier wurde eine Konfigurations-Datei angelegt, die allerdings größtenteils die Standartwerte des Tools übernimmt. Die einzig angepassten Regeln sind das ausschalten von Semikolons und das Anpassen des Anführungszeichen-Charakters auf ein einfaches Anführungszeichen.
+Damit der Quellcode einheitlich bleibt wurde das Code-Formatier Tool "(+Prettier)" eingesetzt. Auch hier wurde eine Konfigurations-Datei angelegt, die allerdings größtenteils die Standardwerte des Tools übernimmt. Die einzig angepassten Regeln sind das ausschalten von Semikolons und das Anpassen des Anführungszeichen-Charakters auf ein einfaches Anführungszeichen.
 
 Auch diese Konfigurationen lassen sich im Stammverzeichnis der Projekte unter der Datei `.preettierrc.js` einsehen.
 
@@ -132,13 +132,13 @@ Auch diese Konfigurationen lassen sich im Stammverzeichnis der Projekte unter de
 
 Die manuellen Tests im Bereich (+React) wurden unter anderen mit der Chrome-Erweiterung "React Developer Tools" durchgeführt, welche den Wert aller in der aktuellen Ansicht vorhandenen Variablen darstellt und manipulieren lässt.
 
-Die (+GraphQL)-API wurde mithilfe der in der (+Apollo) integrierten Schnittstelle "GraphQL-Playground" getestet. Diese ermöglicht das einblicken des kompletten Schemas und das interactive erstellen und senden von Anfragen.
+Die (+GraphQL)-API wurde mithilfe der in der (+Apollo) integrierten Schnittstelle "GraphQL-Playground" getestet. Diese ermöglicht das Einblicken des kompletten Schemas und das interactive Erstellen und Senden von Anfragen.
 
 Die Webapplikation wurde auch in verschiedenen Browsern und auf verschiedenen Geräten getestet.
 
 ## Versionierung
 
-Von Beginn des Projektes an wurde (+Git) als Versionsverwaltung verwendet. Der Übersichtlichkeit wegen wurde jedem Commit, nach dem (+Gitmoji) Prinzip, ein Emoji zugewiesen der die Art der Änderung beschreibt. Ein Beispiel wäre "\emoji{bug}" für das Korrigieren von Fehlern (Bugs) oder "\emoji{sparkles}" für das Implementieren von neuen Features.
+Von Beginn des Projektes an wurde (+Git) als Versionsverwaltung verwendet. Der Übersichtlichkeit wegen wurde jedem Commit, nach dem (+Gitmoji) Prinzip ein Emoji zugewiesen, der die Art der Änderung beschreibt. Ein Beispiel wäre "\emoji{bug}" für das Korrigieren von Fehlern (Bugs) oder "\emoji{sparkles}" für das Implementieren von neuen Features.
 
 # Wirtschaftlichkeitsbetrachtung
 
@@ -155,7 +155,7 @@ Projektkosten: Durchführungszeit von 70 Stunden x 10€ Kosten pro Stunde, also
 
 # Anhang
 
-**Hinweis:** Die hier zu findenden Code-Beispiele wurden gekürzt, damit die angesprochenden Punkte klarer erklärt werden. Funktionsfähige Versionen dieser Dateien kann man in jeden Beispiel unter `// file: path/to/file` finden.
+**Hinweis:** Die hier zu findenden Code-Beispiele wurden gekürzt, damit die angesprochenen Punkte klarer erklärt werden. Funktionsfähige Versionen dieser Dateien kann man in jeden Beispiel unter `// file: path/to/file` finden.
 
 \clearpage
 
@@ -263,7 +263,7 @@ Hier werden die Sterne der Match-Karten auf der Gruppen Seite, je nach dem ob di
 
 ## React-Spring + React-Use-Gesture Animations Beispiel
 
-**Hinweis:** Hier wurde darauf verzichtet ein Beispiel aus Projekt zu entnehmen, da der relevante Code (`src\containers\swiping\components\deck\Deck.tsx`) zu komplex war um ihn zu kürzen.
+**Hinweis:** Hier wurde darauf verzichtet ein Beispiel aus Projekt zu entnehmen, da der relevante Code (`src\containers\swiping\components\deck\Deck.tsx`) zu komplex war, um ihn zu kürzen.
 
 ```tsx
 // taken from: https://use-gesture.netlify.app/docs
@@ -284,7 +284,7 @@ function PullRelease() {
 }
 ```
 
-Das Ergebnis ist eine DIV die bei gedrückter Maus / gepressten Finger den Pointer folgt und sich zur Mitte zurückzieht, wenn man loslässt. Für eine Animierte Version kann man auch die Dokumentations-Seite von (+ReactUseGesture) (unter [https://use-gesture.netlify.app/docs](https://use-gesture.netlify.app/docs)) besuchen, dem dieses Beispiel entnommen wurde.
+Das Ergebnis ist eine DIV die bei gedrückter Maus / gepressten Finger den Pointer folgt und sich zur Mitte zurückzieht, wenn man loslässt. Für eine animierte Version kann man auch die Dokumentations-Seite von (+ReactUseGesture) (unter [https://use-gesture.netlify.app/docs](https://use-gesture.netlify.app/docs)) besuchen, dem dieses Beispiel entnommen wurde.
 
 \clearpage
 
@@ -339,11 +339,11 @@ const GroupEdit: FC<IProps> = ({ history }) => {
 export default GroupEdit;
 ```
 
-Hier wird ein Formular zum Erstellen einer neuen Gruppe Implementiert. Die Typen-Definition `CreateGroupMutationVariables` enthält die von der `createGroup` Mutation benötigte Objekt-Form. Diese Definition wird beim Aufruf der (+ReactHook) `useForm` verwendet, welche dann Informationen für Code-Vervollständigungs Tools bereitstellt. Zum Einsatz kommen diese Code-Vervollständigungen dann zum Beispiel beim Setzen der `name` Property bei der Wrapper-Komponente `Controller`.
+Hier wird ein Formular zum Erstellen einer neuen Gruppe implementiert. Die Typen-Definition `CreateGroupMutationVariables` enthält die von der `createGroup` Mutation benötigte Objekt-Form. Diese Definition wird beim Aufruf der (+ReactHook) `useForm` verwendet, welche dann Informationen für Code-Vervollständigungs Tools bereitstellt. Zum Einsatz kommen diese Code-Vervollständigungen dann zum Beispiel beim Setzen der `name` Property bei der Wrapper-Komponente `Controller`.
 
-Der spread von `{...field}` in der `TextField` Komponente meldet dann die benötigten (+React) Properties an welche von (+ReactHookForm) benötigt werden, um den eingegebenen Wert auszulesen, zu verarbeitet und darzustellen.
+Der spread von `{...field}` in der `TextField` Komponente meldet dann die benötigten (+React) Properties an, welche von (+ReactHookForm) benötigt werden, um den eingegebenen Wert auszulesen, zu verarbeitet und darzustellen.
 
-Letztendlich wird mit `handleSubmit` noch definiert was bei einer Erfolgreichen Eingabe ausgelöst werden soll. In diesen Fall wird `createGroup` mit den eben eingegebenen Werten aufgerufen und somit eine neue Gruppe erstellt.
+Letztendlich wird mit `handleSubmit` noch definiert, was bei einer erfolgreichen Eingabe ausgelöst werden soll. In diesen Fall wird `createGroup` mit den eben eingegebenen Werten aufgerufen und somit eine neue Gruppe erstellt.
 
 \clearpage
 
@@ -468,7 +468,7 @@ user.addFields('mutations', {
 })
 ```
 
-Hier wird das Benutzer Datenbank- und API-Schema definiert. Zuerst wird die Factory-Methode `dbSchemaFactory` mit den Argumenten für den Namen des Schemas, der Definition und weiteren Optionen für die Intern verwendeten Methoden aufgerufen. Das zweite Argumente ist dabei eine (+Mongoose)-Schema Definition. So wird zum Beispiel durch `username: { required: true, type: String, unique: true }` definiert, dass der Benutzername den Datentyp "String" hat, einzigartig sein soll und beim erstellen (und modifizieren) benötigt wird. Am Ende werden dann noch die (+GraphQL) Queries und Mutationen angemeldet.
+Hier wird das Benutzer Datenbank- und API-Schema definiert. Zuerst wird die Factory-Methode `dbSchemaFactory` mit den Argumenten für den Namen des Schemas, der Definition und weiteren Optionen für die Intern verwendeten Methoden aufgerufen. Das zweite Argument ist dabei eine (+Mongoose)-Schema Definition. So wird zum Beispiel durch `username: { required: true, type: String, unique: true }` definiert, dass der Benutzername den Datentyp "String" hat, einzigartig sein soll und beim erstellen (und modifizieren) benötigt wird. Am Ende werden dann noch die (+GraphQL) Queries und Mutationen angemeldet.
 
 \clearpage
 
@@ -519,8 +519,8 @@ user.addFields("mutations", {
 });
 ```
 
-Bei der Mutations Definition von `createOne` wird das übergebende Passwort vor dem Speichern in die Datenbank über `bcrypt.hash(password, 10)` mit (+Bcrypt) verschlüsselt.
+Bei der Mutations-Definition von `createOne` wird das übergebende Passwort vor dem Speichern in die Datenbank über `bcrypt.hash(password, 10)` mit (+Bcrypt) verschlüsselt.
 
-Auch bei der Mutations Definition von `login` kommt (+Bcrypt) zum Einsatz. Diesmal wird mit `bcrypt.compare(password, dbUser.password)` verglichen, ob das übergebende Passwort mit dem in der Datenbank gespeicherten Passwort-Hash übereinstimmt. Wenn dies der Fall ist wird mit (+JWT) ein Token generiert, welcher zum Authentifizieren gegenüber der (+GraphQL)-Schnittstelle verwendet wird. Dieser ist für einen Tag gültig.
+Auch bei der Mutations-Definition von `login` kommt (+Bcrypt) zum Einsatz. Diesmal wird mit `bcrypt.compare(password, dbUser.password)` verglichen, ob das übergebende Passwort mit dem in der Datenbank gespeicherten Passwort-Hash übereinstimmt. Wenn dies der Fall ist, wird mit (+JWT) ein Token generiert, welcher zum Authentifizieren gegenüber der (+GraphQL)-Schnittstelle verwendet wird. Dieser ist für einen Tag gültig.
 
 \clearpage
