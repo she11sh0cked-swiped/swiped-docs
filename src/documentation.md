@@ -72,7 +72,7 @@ Als Entwicklungsprozess wurde die agile Softwareentwicklung verwendet, sodass w�
 
 ### Initialisierung
 
-Das Projekt wurde mit Hilfe von (+CreateReactApp) über den Befehl `yarn create react-app swiped-frontend --template typescript` initialisiert. Dies erstellt eine Basisumgebung für eine neue (+React) Einzelseitenanwendung mit (+TypeScript) als Programmiersprache, (+Webpack) als Bundler und out-of-the-box Support für viele Entwickler-Features wie zum Beispiel dem (+HotReloading). Die erstellte Ordnerstruktur ist zunächst etwas "Unordentlich", weshalb sie zu einer Sinnvolleren Ordnerstruktur umgeändert wurde ([siehe Anhang](#front-end-ordnerstruktur)). Als nächstes wurden Konfigurationen für weitere Entwickler-Tools wie zum Beispiel (+ESLint) und (+Prettier) angelegt. Diese helfen dabei den Quellcode einheitlich zu halten und nehmen einiges an Arbeit ab.
+Das Projekt wurde mit Hilfe von (+CreateReactApp) über den Befehl `yarn create react-app swiped-frontend --template typescript` initialisiert. Dies erstellt eine Basisumgebung für eine neue (+React) Einzelseitenanwendung mit (+TypeScript) als Programmiersprache, (+Webpack) als Bundler und out-of-the-box Support für viele Entwickler-Features wie zum Beispiel dem (+HotReloading). Die erstellte Ordnerstruktur ist zunächst etwas "Unordentlich", weshalb sie zu einer Sinnvolleren Ordnerstruktur umgeändert wurde (siehe Anhang [AA](#front-end-ordnerstruktur)). Als nächstes wurden Konfigurationen für weitere Entwickler-Tools wie zum Beispiel (+ESLint) und (+Prettier) angelegt. Diese helfen dabei den Quellcode einheitlich zu halten und nehmen einiges an Arbeit ab.
 
 ### Front-End Framework
 
@@ -82,15 +82,15 @@ Als (+FrontEnd) Framework wurde (+React) gewählt. (+React) wurde mit dem Fokus 
 
 ### Styling
 
-Ich habe mich schon früh dazu entschieden die (+React)-Komponenten Bibliothek "(+MaterialUI)" mit in das Projekt einzubinden. (+MaterialUI), welches Google's Design-Sprache (+MaterialDesign) als (+React)-Komponenten Implementiert, erlaubt es mit einer einheitlichen Kollektion von Basis-Komponenten zu starten. Auch das Überschreiben der Standartwerte ist durch ein Theming-Konzept sehr leicht ([siehe Anhang](#material-ui-theming-konzept)). Styling wird bei der Verwendung von (+MaterialUI) nicht in CSS, sondern dank (+JSS) in JavaScript geschrieben. Dies ermöglicht es CSS dynamisch aus dem Quellcode zu manipulieren ([siehe Anhang](#styling-mit-material-ui)).
+Ich habe mich schon früh dazu entschieden die (+React)-Komponenten Bibliothek "(+MaterialUI)" mit in das Projekt einzubinden. (+MaterialUI), welches Google's Design-Sprache (+MaterialDesign) als (+React)-Komponenten Implementiert, erlaubt es mit einer einheitlichen Kollektion von Basis-Komponenten zu starten. Auch das Überschreiben der Standartwerte ist durch ein Theming-Konzept sehr leicht (siehe Anhang [AA](#material-ui-theming-konzept)). Styling wird bei der Verwendung von (+MaterialUI) nicht in CSS, sondern dank (+JSS) in JavaScript geschrieben. Dies ermöglicht es CSS dynamisch aus dem Quellcode zu manipulieren (siehe Anhang [AA](#styling-mit-material-ui)).
 
 ### Animationen
 
-Für die Animationen der Karten wurde sich entschieden (+ReactSpring) im Zusammenspiel mit (+ReactUseGesture) zu verwenden. Dies stellt, wie auch (+MaterialUI), einen Quellcode nahen Ansatz für CSS manipulationen dar ([siehe Anhang](#react-spring--react-use-gesture-animations-beispiel)).
+Für die Animationen der Karten wurde sich entschieden (+ReactSpring) im Zusammenspiel mit (+ReactUseGesture) zu verwenden. Dies stellt, wie auch (+MaterialUI), einen Quellcode nahen Ansatz für CSS manipulationen dar (siehe Anhang [AA](#react-spring--react-use-gesture-animations-beispiel)).
 
 ### Formulare
 
-Die Formulare der Login-, Registrier-, sowie der Gruppen-Editier Seiten benutzen ein Tool names "(+ReactHookForm)". Mit diesem Tool kann man leicht Formulare Implementierung, ohne das man auf Daten-Felder, Validatoren und andere Sachen um die man sich normalerweise selber kümmern müsste achten muss. Hierzu verwendet man einfach Wrapper-Komponenten, die sich dann Intern selbständig einen State zusammenstellen ([siehe Anhang](#react-hook-form-formular-beispiel)).
+Die Formulare der Login-, Registrier-, sowie der Gruppen-Editier Seiten benutzen ein Tool names "(+ReactHookForm)". Mit diesem Tool kann man leicht Formulare Implementierung, ohne das man auf Daten-Felder, Validatoren und andere Sachen um die man sich normalerweise selber kümmern müsste achten muss. Hierzu verwendet man einfach Wrapper-Komponenten, die sich dann Intern selbständig einen State zusammenstellen (siehe Anhang [AA](#react-hook-form-formular-beispiel)).
 
 ### Back-End Kommunikation
 
@@ -100,7 +100,7 @@ Das (+FrontEnd) kommuniziert mit dem (+BackEnd) über eine (+GraphQL)-Schnittste
 
 ### Datenquelle
 
-Für die Film Informationen wird eine öffentlich zugängliche API-Schnittstelle namens The Movie Database ((+TMDb)) verwendet. Statt die Anfragen direkt aus dem (+FrontEnd) an diese API zu senden, wird hier allerdings das (+BackEnd) als (+Proxy) verwendet. Das (+FrontEnd) sendet also Anfragen an das (+BackEnd), welches dann die benötigten (+TMDb) API-Anfragen macht. Die darauffolgenden Antworten werden dann an das (+FrontEnd) weiter geleitet. Dies verhindert, dass der geheime API-Schlüssel bekannt gemacht wird. Zusätzlich hat man so auch die Option die empfangenden Daten zu manipulieren oder sonstig zu verarbeiten. Im Falle dieses Projektes ist es zum Beispiel wichtig, dass die (+TMDb) API-Anfragen zwischengespeichert werden, da sonst sehr schnell die tägliche Quota aufgebraucht wird ([siehe Anhang](#ablauf-von-film-api-anfragen)).
+Für die Film Informationen wird eine öffentlich zugängliche API-Schnittstelle namens The Movie Database ((+TMDb)) verwendet. Statt die Anfragen direkt aus dem (+FrontEnd) an diese API zu senden, wird hier allerdings das (+BackEnd) als (+Proxy) verwendet. Das (+FrontEnd) sendet also Anfragen an das (+BackEnd), welches dann die benötigten (+TMDb) API-Anfragen macht. Die darauffolgenden Antworten werden dann an das (+FrontEnd) weiter geleitet. Dies verhindert, dass der geheime API-Schlüssel bekannt gemacht wird. Zusätzlich hat man so auch die Option die empfangenden Daten zu manipulieren oder sonstig zu verarbeiten. Im Falle dieses Projektes ist es zum Beispiel wichtig, dass die (+TMDb) API-Anfragen zwischengespeichert werden, da sonst sehr schnell die tägliche Quota aufgebraucht wird (siehe Anhang [AA](#ablauf-von-film-api-anfragen)).
 
 ### Datenbank
 
