@@ -1,5 +1,5 @@
 ---
-title: "Swiped - Dokumentation zu betrieblichen Projektarbeit"
+title: "Swiped - Dokumentation zur betrieblichen Projektarbeit"
 subtitle: "Entwicklung einer Webanwendung zum anonymisierten matchen von Filmen und Serien in Gruppen von Benutzern."
 author: [Erik Berreßem]
 titlepage: true
