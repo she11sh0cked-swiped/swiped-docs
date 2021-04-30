@@ -1,0 +1,20 @@
+graph TB
+    internet((Internet))
+
+    subgraph host [Host]
+        subgraph docker [Docker]
+            revproxy("SSL Reverse-Proxy (Traefik)")
+            frontend("Front-End (NginX / React)")
+            backend("Back-End (NodeJS / Express)")
+            database("Database (MongoDB)")
+        end
+
+        storage[(Permanenter Speicher)]
+    end
+
+
+    internet -->|443| revproxy
+    revproxy -->|3000| frontend
+    frontend -->|4000| backend
+    backend -->|27017| database
+    database -->|/path/to/db/file| storage

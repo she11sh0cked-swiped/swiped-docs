@@ -1,0 +1,16 @@
+sequenceDiagram
+  participant F as Front-End
+  participant B as Back-End
+  participant T as TMDb
+
+  F->>B: Anfrage: Film mit der ID "abcdef123456"
+
+  B->>B: Ist der Film im Zwischenspeicher?
+  opt Nicht im Zwischenspeicher
+    B->>T: Anfrage: Film mit der ID "abcdef123456"
+    T->>B: Antwort: Film mit der ID "abcdef123456"
+
+    B->>B: Speicher den Film im Zwischenspeicher
+  end
+
+  B->>F: Antwort: Film mit der ID "abcdef123456"

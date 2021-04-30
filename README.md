@@ -7,4 +7,4 @@
 - pdftk
 - Fira Code
 - Segoe UI Emoji
-- [mermaid-filter](https://github.com/raghur/mermaid-filter)
+- mermaid-cli

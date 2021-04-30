@@ -1,0 +1,57 @@
+classDiagram
+  %% User classes
+
+  class User {
+    +ObjectID _id
+    +String username
+    -String password
+    +ArrayOf_Vote votes
+  }
+
+  User --> Vote
+
+  class Vote {
+    +Boolean like
+    +Media media
+  }
+
+  Vote --> Media
+
+  %% Group classes
+
+  class Group {
+    +ObjectID _id
+    +String name
+    +User owner
+    +ArrayOf_User members
+
+    +matches() ArrayOf_Match
+  }
+
+  Group --> Match
+  Group --> User
+
+  class Match {
+    +Int count
+    +Media media
+  }
+
+  Match --> Media
+
+  %% Media classes
+
+  class Media {
+    <<interface>>
+    +Int id
+    +MediaType media_type
+  }
+
+  TMDbMovie ..|> Media
+  TMDbTv ..|> Media
+  Media --> MediaType
+
+  class MediaType {
+    <<enumeration>>
+    movie
+    tv
+  }

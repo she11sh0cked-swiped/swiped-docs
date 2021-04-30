@@ -288,7 +288,7 @@ function PullRelease() {
 }
 ```
 
-Das Ergebnis ist eine DIV die bei gedrückter Maus / gepressten Finger den Pointer folgt und sich zur Mitte zurückzieht, wenn man loslässt. Für eine animierte Version kann man auch die Dokumentations-Seite von (+ReactUseGesture) (unter [https://use-gesture.netlify.app/docs](https://use-gesture.netlify.app/docs)) besuchen, dem dieses Beispiel entnommen wurde.
+Das Ergebnis ist eine DIV die bei gedrückter Maus / gepressten Finger den Pointer folgt und sich zur Mitte zurückzieht, wenn man loslässt. Für eine animierte Version kann man auch die Dokumentations-Seite von (+ReactUseGesture) (unter [https://use-gesture.netlify.app/docs]()) besuchen, dem dieses Beispiel entnommen wurde.
 
 \clearpage
 
@@ -351,90 +351,11 @@ Letztendlich wird mit `handleSubmit` noch definiert, was bei einer erfolgreichen
 
 ## Ablauf von TMDb API-Anfragen
 
-```mermaid
-sequenceDiagram
-  participant F as Front-End
-  participant B as Back-End
-  participant T as TMDb
-
-  F->>B: Anfrage: Film mit der ID "abcdef123456"
-
-  B->>B: Ist der Film im Zwischenspeicher?
-  opt Nicht im Zwischenspeicher
-    B->>T: Anfrage: Film mit der ID "abcdef123456"
-    T->>B: Antwort: Film mit der ID "abcdef123456"
-
-    B->>B: Speicher den Film im Zwischenspeicher
-  end
-
-  B->>F: Antwort: Film mit der ID "abcdef123456"
-```
-
-\clearpage
+![Ablauf von TMDb API-Anfragen](./mermaid/tmdb-sequence.png){ height=50% }
 
 ## UML-Diagram
 
-```mermaid
-classDiagram
-  %% User classes
-
-  class User {
-    +ObjectID _id
-    +String username
-    -String password
-    +ArrayOf_Vote votes
-  }
-
-  User --> Vote
-
-  class Vote {
-    +Boolean like
-    +Media media
-  }
-
-  Vote --> Media
-
-  %% Group classes
-
-  class Group {
-    +ObjectID _id
-    +String name
-    +User owner
-    +ArrayOf_User members
-
-    +matches() ArrayOf_Match
-  }
-
-  Group --> Match
-  Group --> User
-
-  class Match {
-    +Int count
-    +Media media
-  }
-
-  Match --> Media
-
-  %% Media classes
-
-  class Media {
-    <<interface>>
-    +Int id
-    +MediaType media_type
-  }
-
-  TMDbMovie ..|> Media
-  TMDbTv ..|> Media
-  Media --> MediaType
-
-  class MediaType {
-    <<enumeration>>
-    movie
-    tv
-  }
-```
-
-\clearpage
+![UML-Diagram](./mermaid/uml.png)
 
 ## Erstellen eines Schemas
 
@@ -565,49 +486,28 @@ export type GroupQueryHookResult = ReturnType<typeof useGroupQuery>;
 
 Wie man hier sieht hat (+GraphQLCodegen) die Operation `group_findById` in der Input-Datei `GroupEdit.graphql` eingelesen und mit den gewonnenen Informationen die Output-Datei `GroupEdit.generated.ts` generiert. In dieser Datei finden sich diverse Typen-Definitionen, sowie (+^ReactHook) die dann im Quellcode (hier `src\containers\groupEdit\GroupEdit.tsx`) verwendet werden können.
 
-\clearpage
-
 ## Infrastruktur
 
-```mermaid
-flowchart TB
-    internet((Internet))
+![Infrastruktur](./mermaid/infrastructure.png){ height=90% }
 
-    subgraph host [Host]
-        subgraph docker [Docker]
-            revproxy("SSL Reverse-Proxy (Traefik)")
-            frontend("Front-End (NginX / React)")
-            backend("Back-End (NodeJS / Express)")
-            database("Database (MongoDB)")
-        end
-
-        storage[(Permanenter Speicher)]
-    end
-
-
-    internet -->|443| revproxy
-    revproxy -->|3000| frontend
-    frontend -->|4000| backend
-    backend -->|27017| database
-    database -->|/path/to/db/file| storage
-```
+\clearpage
 
 ## Links
 
 ### Anwendung
 
-https://swiped.she11sh0cked.tk/
+[https://swiped.she11sh0cked.tk](https://swiped.she11sh0cked.tk)
 
 ### Quellcode
 
-**Front-End:** https://github.com/she11sh0cked/swiped-frontend
+**Front-End:** [https://github.com/she11sh0cked/swiped-frontend](https://github.com/she11sh0cked/swiped-frontend)
 
-**Back-End:** https://github.com/she11sh0cked/swiped-backend
+**Back-End:** [https://github.com/she11sh0cked/swiped-backend](https://github.com/she11sh0cked/swiped-backend)
 
-**Dokumentation:** https://github.com/she11sh0cked/swiped-docs
+**Dokumentation:** [https://github.com/she11sh0cked/swiped-docs](https://github.com/she11sh0cked/swiped-docs)
 
 ### Docker Container
 
-**Front-End:** https://hub.docker.com/r/she11sh0cked/swiped-frontend
+**Front-End:** [https://hub.docker.com/r/she11sh0cked/swiped-frontend](https://hub.docker.com/r/she11sh0cked/swiped-frontend)
 
-**Back-End:** https://hub.docker.com/r/she11sh0cked/swiped-backend
+**Back-End:** [https://hub.docker.com/r/she11sh0cked/swiped-backend](https://hub.docker.com/r/she11sh0cked/swiped-backend)
