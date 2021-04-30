@@ -1,5 +1,5 @@
 ---
-title: "Swiped - Dokumentation zur betrieblichen Projektarbeit"
+title: "Swiped — Dokumentation zur betrieblichen Projektarbeit"
 subtitle: "Entwicklung einer Webanwendung zum anonymisierten matchen von Filmen und Serien in Gruppen von Benutzern."
 author: [Erik Berreßem]
 titlepage: true
@@ -160,7 +160,7 @@ Jegliche verwendete Software ist zur freien Verwendung oder Open Source verfügb
 Projektkosten: Durchführungszeit von 70 Stunden x 10€ Kosten pro Stunde, also Projektkosten von gesamt 700,00€.
 
 \clearpage
-\printnoidxglossary[title=Glossar,sort=word]
+\printnoidxglossary[sort=word]
 \clearpage
 
 \appendix
