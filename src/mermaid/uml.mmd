@@ -44,6 +44,31 @@ classDiagram
     <<interface>>
     +Int id
     +MediaType media_type
+    +String backdrop_path
+    +Array~Int~ genre_ids
+    +String original_language
+    +String overview
+    +Float popularity
+    +String poster_path
+    +Float vote_average
+    +Int vote_count
+  }
+
+  class TMDbMovie {
+    <<extends Media>>
+    +Boolean adult
+    +String original_title
+    +String release_date
+    +String title
+    +Boolean video
+  }
+
+  class TMDbTv {    
+    <<extends Media>>
+    +String first_air_date
+    +String name
+    +String origin_country
+    +String original_name
   }
 
   TMDbMovie ..|> Media
