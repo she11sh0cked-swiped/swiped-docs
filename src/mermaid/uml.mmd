@@ -5,7 +5,7 @@ classDiagram
     +ObjectID _id
     +String username
     -String password
-    +ArrayOf_Vote votes
+    +Array~Vote~ votes
   }
 
   User --> Vote
@@ -23,9 +23,9 @@ classDiagram
     +ObjectID _id
     +String name
     +User owner
-    +ArrayOf_User members
+    +Array~User~ members
 
-    +matches() ArrayOf_Match
+    +matches() Array~Match~
   }
 
   Group --> Match
