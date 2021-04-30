@@ -585,12 +585,11 @@ flowchart TB
     end
 
 
-    internet --->|80/443| revproxy
-    revproxy --->|443| internet
+    internet -->|443| revproxy
     revproxy -->|3000| frontend
     frontend -->|4000| backend
     backend -->|27017| database
-    database <-->|/path/to/db/file| storage
+    database -->|/path/to/db/file| storage
 ```
 
 ## Links
