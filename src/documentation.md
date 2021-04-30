@@ -116,9 +116,9 @@ In diesem Projekt wird ein Tool names "(+GraphQLCodegen)" eingesetzt. Dieses gen
 
 ### Deployment
 
-Das Projekt wurde mithilfe von (+Docker) und (+DockerCompose) auf meinen von mir gemieteten OVH-Server deployed. Die (+Docker)-Umgebung hat den Vorteil, dass ein Deployment immer plattformunabhängig nachstellbar ist. Die Datei, die beschreibt wie ein (+Docker)-Container erstellt werden soll, nennt sich `Dockerfile` und ist im Stammverzeichnis beider Projekte zu finden.
+Das Projekt wurde mithilfe von (+Docker) und (+DockerCompose) auf einen von mir gemieteten Server deployed. Die (+Docker)-Umgebung hat den Vorteil, dass ein Deployment immer plattformunabhängig nachstellbar ist. Die Datei, die beschreibt wie ein (+Docker)-Container erstellt werden soll, nennt sich `Dockerfile` und ist im Stammverzeichnis beider Projekte zu finden. In meiner (+DockerCompose)-Konfiguration verwende ich zusätzlich auch noch einen (+ReverseProxy) namens "(+Traefik)". Dieser leitet HTTP-Anfragen als HTTPS an meine Server weiter. Meine (+SSL)-Zertifikate erhalte ich von der gemeinnützigen Zertifizierungsstelle "(+LetsEncrypt)". Die (+Traefik)-als-(+SSL)-(+ReverseProxy) Konfiguration hatte ich allerdings nicht speziel für dieses Projekt erstellt, da ich sie bereits vorher für private Zwecke benötigte.
 
-Zusätzlich sind die (+Docker)-Images auch im (+Docker)-HUB auffindbar. Dies erleichtert den Deployment-Prozess, da bei jeden (+Git)-Push automatisiert eine neue Version der Images gebaut wird. (Siehe Anhang [A.11](#links))
+Zusätzlich sind die (+Docker)-Images auch im (+Docker)-HUB auffindbar. Dies erleichtert den Deployment-Prozess, da bei jeden (+Git)-Push automatisiert eine neue Version der Images gebaut wird. (Siehe Anhang [A.11](#infrastruktur) und [A.12](#links))
 
 # Qualitätskontrolle
 
@@ -144,7 +144,7 @@ Die Webapplikation wurde auch in verschiedenen Browsern und auf verschiedenen Ge
 
 ## Versionierung
 
-Von Beginn des Projektes an wurde (+Git) als Versionsverwaltung verwendet. Der Übersichtlichkeit wegen wurde jedem Commit, nach dem (+Gitmoji) Prinzip ein Emoji zugewiesen, der die Art der Änderung beschreibt. Ein Beispiel wäre "\emoji{bug}" für das Korrigieren von Fehlern (Bugs) oder "\emoji{sparkles}" für das Implementieren von neuen Features. (Siehe Anhang [A.11](#links))
+Von Beginn des Projektes an wurde (+Git) als Versionsverwaltung verwendet. Der Übersichtlichkeit wegen wurde jedem Commit, nach dem (+Gitmoji) Prinzip ein Emoji zugewiesen, der die Art der Änderung beschreibt. Ein Beispiel wäre "\emoji{bug}" für das Korrigieren von Fehlern (Bugs) oder "\emoji{sparkles}" für das Implementieren von neuen Features. (Siehe Anhang [A.12](#links))
 
 # Wirtschaftlichkeitsbetrachtung
 
@@ -566,6 +566,32 @@ export type GroupQueryHookResult = ReturnType<typeof useGroupQuery>;
 Wie man hier sieht hat (+GraphQLCodegen) die Operation `group_findById` in der Input-Datei `GroupEdit.graphql` eingelesen und mit den gewonnenen Informationen die Output-Datei `GroupEdit.generated.ts` generiert. In dieser Datei finden sich diverse Typen-Definitionen, sowie (+^ReactHook) die dann im Quellcode (hier `src\containers\groupEdit\GroupEdit.tsx`) verwendet werden können.
 
 \clearpage
+
+## Infrastruktur
+
+```mermaid
+flowchart TB
+    internet((Internet))
+
+    subgraph host [Host]
+        subgraph docker [Docker]
+            revproxy("SSL Reverse-Proxy (Traefik)")
+            frontend("Front-End (NginX / React)")
+            backend("Back-End (NodeJS / Express)")
+            database("Database (MongoDB)")
+        end
+
+        storage[(Permanenter Speicher)]
+    end
+
+
+    internet --->|80/443| revproxy
+    revproxy --->|443| internet
+    revproxy -->|3000| frontend
+    frontend -->|4000| backend
+    backend -->|27017| database
+    database <-->|/path/to/db/file| storage
+```
 
 ## Links
 
